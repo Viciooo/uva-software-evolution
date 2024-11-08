@@ -8,6 +8,7 @@ import String;
 import lang::java::m3::Core;
 import lang::java::m3::AST;
 import util::Math;
+import Map;
 
 // Duplicate can be counted in 2 ways:
 // 1. Counting each duplicate as 1
@@ -33,12 +34,11 @@ public int duplicationLevel(){
     for(loc method <- methods){
         list[str] lines = fileContentLines(method);
         totalLines += size(lines);
-        duplicates += calculateLineDuplication(lines);
+        duplicates += calculateDuplicates(lines);
     };
     real duplication = duplicates * 100 / totalLines;
     // println("Duplicated lines: <duplication>%");
     // println("Total lines: <totalLines>");
-    // println("Duplicated lines: <duplicates>");
 
     if(duplication <= 3.0){
         return 5;
@@ -53,48 +53,27 @@ public int duplicationLevel(){
     }
 }
 
-public int calculateLineDuplication(list[str] lines) {
-    int windowSize = 6; // Size of the window to compare lines
-    set[str] uniqueDuplicates = {}; // Set to store unique duplicate sequences
-    int duplicatedLinesCounter = 0;       // Counter for duplicated lines
-    // str content = "";
-
-    if (size(lines) < windowSize) {
+private int calculateDuplicates(list[str] lines) {
+    int windowSize = 6;
+    if(size(lines) < windowSize){
         return 0;
     }
-    for (int i <- [0 .. size(lines) - windowSize]) {
-        list[str] currentWindow = lines[i .. i + windowSize];
-        if ("<currentWindow>" in uniqueDuplicates) {
-            continue; // Skip if we already found this duplicate
-        }
+    
+    map[str, int] windows = ();
+    int duplicatedLinesCounter = 0;
 
-        if (size(currentWindow) != 6){
-            println("Problem with window size");
-            println(currentWindow);
-            println("i: <i>");
-            println("i + windowSize: <i + windowSize>");
-            continue;
-        }
-        
-        
-        for (int j <- [i + 1 .. size(lines) - windowSize]) {
-            list[str] comparisonWindow = lines[j .. j + windowSize];
-            // str content1 = "currentWindow: <currentWindow>\n";
-            // str content2 = "comparisonWindow: <comparisonWindow>\n\n";
-            // content += content1;
-            // content += content2;
-            
-            if ("<currentWindow>" == "<comparisonWindow>") { // We have to compare them as strings
-                // println("Found duplicate: <currentWindow>");
-                if (!("<currentWindow>" in uniqueDuplicates)) {
-                    uniqueDuplicates += {"<currentWindow>"};
-                    duplicatedLinesCounter += windowSize; // Add for currentWindow. We want to count duplicated lines, that includes the one that we started with
-                }
-                duplicatedLinesCounter += windowSize; // Add for each duplicate
+    for (int i <- [0 .. size(lines) - windowSize]) {
+        str window = "<lines[i .. i + windowSize]>";
+        if (window in windows) {
+            if(windows[window]==0){
+                windows[window] += windowSize; // we need to add twice for the first time
+                duplicatedLinesCounter += windowSize;
             }
+            windows[window] += windowSize;
+            duplicatedLinesCounter += windowSize;
+        }else{
+            windows[window] = 0;
         }
     }
-    // println(uniqueDuplicates);
-    // writeFile(|file:///Users/spoton/Documents/uva/evolution/uva-software-evolution/series1/output.txt|, content);
     return duplicatedLinesCounter;
 }
