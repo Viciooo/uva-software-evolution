@@ -1,8 +1,7 @@
 module Main
 
-import IO;
+import Maintainability;
 
-int main(int testArgument=0) {
-    println("argument: <testArgument>");
-    return testArgument;
+void main() {
+    printAllMetrics();
 }

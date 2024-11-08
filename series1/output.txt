@@ -1,0 +1,1179 @@
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["private static void printRS(ResultSet rs) throws SQLException {","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["}","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","System.out.println();","}","dsdsd","sdsd"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["}","System.out.println();","}","dsdsd","sdsd","sd"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["System.out.println();","}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+comparisonWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["}","dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+
+currentWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["dsdsd","sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+comparisonWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["sdsd","sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+
+currentWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["sd","ResultSetMetaData md = rs.getMetaData();","int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["int count = md.getColumnCount();","for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+comparisonWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["for(int i=1; i\<=count; i++){","System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+comparisonWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["System.out.print(md.getColumnLabel(i));","System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["System.out.print(\'\\t\');","}","dsdsd","ds","System.out.println();","while(rs.next()){"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+
+currentWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["}","dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+
+currentWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["dsdsd","ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
+currentWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}"]
+
+currentWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();"]
+
+currentWindow: ["ds","System.out.println();","while(rs.next()){","for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');"]
+comparisonWindow: ["for(int i=1; i\<=count; i++){","System.out.print(rs.getObject(i));","System.out.print(\'\\t\');","}","System.out.println();","}"]
+
