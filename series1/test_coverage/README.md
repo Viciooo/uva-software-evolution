@@ -7,7 +7,7 @@ This directory contains two batch files that, when run properly, will create and
 The two batch files are:
 
 1. **`run_commands.bat`**: Sets the Java version to Java 5, then runs JaCoCo to execute the existing tests and generate jacoco.exec
-2. **`generate_result.bat`**: Generates the test coverage report (.html file) from jacoco.exec
+2. **`generate_result.bat`**: Generates the test coverage report (.html file) from jacoco.exec and then opens it
 
 ## Usage
 
