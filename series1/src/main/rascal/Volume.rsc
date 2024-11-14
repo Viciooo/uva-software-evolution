@@ -11,7 +11,7 @@ public int volumeLevel(){
     for (class <- getClasses()) {
         locNum += fileLoc(class);
     }
-    println("Total lines of code: <locNum>");
+    println("Total lines of code: <locNum>KLOC");
     if(locNum <= 66000){
         return 5;
     } else if(locNum <= 246000){
@@ -28,6 +28,7 @@ public int volumeLevel(){
 }
 
 public str volumeRank(){
+    println("==========================");
     str rank = mapLevelToRank(volumeLevel());
-    return "Volume rank: <rank>";
+    return "Volume rank: <rank>\n==========================";
 }

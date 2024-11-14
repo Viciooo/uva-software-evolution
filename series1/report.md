@@ -99,7 +99,9 @@
     | --   | -        | -    | -         |
 
     2.5 **Unit testing**  
-    Code coverage is measured using language-specific tools. Ranks are assigned as follows:
+    Code coverage is measured using language-specific tools. We used JacoCo, the results and instruction can be found in ./test_coverage/README.md
+    
+     Ranks are assigned as follows:
 
     | Rank | Unit Test Coverage |
     |------|---------------------|

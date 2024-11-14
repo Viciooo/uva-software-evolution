@@ -4,6 +4,9 @@ import Volume;
 import UnitComplexity;
 import UnitSize;
 import Duplication;
+import Coupling;
+import UnitTesting;
+
 import Utils;
 
 import IO;
@@ -70,5 +73,7 @@ public void printAllMetrics(){
     println(changeabilityRank(complexity, duplication));
     println(testabilityRank(complexity, unitSize));
 
+    println(calculateCoupling());
+    println(unitTestingAssertStatistics());
 }
 

@@ -28,4 +28,6 @@ The resources directory already contains the smallsql0.21_src project. To run th
 1. `run_commands.bat ".\resources\smallsql0.21_src\bin" ".\resources\smallsql0.21_src\lib\junit-3.8.1.jar" smallsql.junit.AllTests`
 2. `generate_result.bat ".\resources\smallsql0.21_src\bin" ".\resources\smallsql0.21_src\src"`
 
-The results for this project are located in the main directory as a jpg file: smallsql_test_coverage_results.jpg
+The results for smallsql:
+![smallsql results](smallsql_test_coverage_results.jpg)
+**Mark**: +

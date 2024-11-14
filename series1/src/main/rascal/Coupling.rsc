@@ -7,7 +7,7 @@ import String;
 import lang::java::m3::Core;
 import lang::java::m3::AST;
 
-public map[str, value] calculateCBO() {
+public map[str, value] calculateCoupling() {
     list[loc] classes = getClasses();
     classDependencies = [];
 
