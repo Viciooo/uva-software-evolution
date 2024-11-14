@@ -59,6 +59,11 @@ public M3 getModel() {
 	return createM3FromDirectory(projectLocation);
 }
 
+public M3 getModelFromFile(loc file) {
+	return createM3FromFile(file);
+}
+
+
 public str mapLevelToRank(int level) {
     switch(level) {
         case 1: return "--";
