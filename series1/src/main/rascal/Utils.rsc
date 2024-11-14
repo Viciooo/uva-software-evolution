@@ -39,7 +39,7 @@ private list[str] removeComments(list[str] lines) {
 // /Users/spoton/Documents/uva/evolution/test-java-project1
 // /Users/spoton/Documents/uva/evolution/hsqldb-2.3.1
 // /Users/spoton/Documents/uva/evolution/smallsql0.21_src
-private loc projectLocation = |file:///Users/spoton/Documents/uva/evolution/hsqldb-2.3.1|;
+private loc projectLocation = |file:///Users/spoton/Documents/uva/evolution/smallsql0.21_src|;
 private str fileContent(loc file) = readFile(file);
 public list[str] fileContentLines(loc file) = removeComments(splitLines(fileContent(file)));
 

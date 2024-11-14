@@ -17,8 +17,8 @@ import util::Math;
 
 // We will use the following guidelines:
 // Risk evaluation
-// 0-20 simple, without much risk
-// 21-50 more complex, moderate risk
+// 0-30 simple, without much risk
+// 31-50 more complex, moderate risk
 // 51-100 complex, high risk
 // >100 untestable, very high risk
 
@@ -48,7 +48,7 @@ private tuple[real,real,real] calculateUnitSizeBuckets(){
     real veryHigh = 0.0;
     real totalLoc = 0.0;
     for(unitSize <- unitSizes){
-        if(unitSize <= 20){
+        if(unitSize <= 30){
             low += unitSize;
         } else if(unitSize <= 50){
             medium += unitSize;

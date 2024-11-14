@@ -11,7 +11,7 @@ public int volumeLevel(){
     for (class <- getClasses()) {
         locNum += fileLoc(class);
     }
-
+    println("Total lines of code: <locNum>");
     if(locNum <= 66000){
         return 5;
     } else if(locNum <= 246000){

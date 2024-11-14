@@ -1,7 +1,7 @@
 module Main
-
+import UnitComplexity;
 import Maintainability;
 
 void main() {
-    printAllMetrics();
+    p();
 }

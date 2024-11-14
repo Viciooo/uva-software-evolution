@@ -35,6 +35,7 @@ private int calculateMethodComplexity(method){
             case \if(_,_) : result += 1;
             case \if(_,_,_) : result += 1;
             case \case(_) : result += 1;
+            case \defaultCase() : result += 1;
             case \do(_,_) : {
                 result += 1;
                 doStmt += 1;
@@ -80,7 +81,7 @@ public int unitComplexityLevel(){
     real moderate = buckets[0];
     real high = buckets[1];
     real veryHigh = buckets[2];
-
+    println("unit complexity: <moderate>, <high>, <veryHigh>");
     if(moderate <= 25.0 && high <= 0.0 && veryHigh <= 0.0){
         return 5;
     }else if(moderate <= 30.0 && high <= 5.0 && veryHigh <= 0.0){

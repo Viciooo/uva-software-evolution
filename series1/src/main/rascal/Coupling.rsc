@@ -46,7 +46,7 @@ public int calculateClassDepencies(loc fileLoc) {
     return size(toSet(result));
 }
 
-str extractRootDirectory(str input) {
+private str extractRootDirectory(str input) {
     list[str] parts = split("/", input);
     if (size(parts) > 1) {
         return parts[1];
