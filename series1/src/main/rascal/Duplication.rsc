@@ -21,13 +21,12 @@ import Map;
 // It is something to be aware of, but as a rule of thumb repetition of more then 6 lines is in our opinion much more worse then that of size 6, 
 // leading as to believe that this approach is acceptable.
 
-public str duplicationRank(){
-    str rank = mapLevelToRank(duplicationLevel());
-    return "Duplication rank: <rank>";
+public void printDuplicationRank(int level){
+    println("Duplication rank: <mapLevelToRank(level)>");
 }
 
-public int duplicationLevel(){
-    list[loc] methods = getMethods();
+public int duplicationLevel(project){
+    list[loc] methods = getMethods(project);
     int duplicates = 0;
     real totalLines = 0.0;
     
@@ -37,8 +36,9 @@ public int duplicationLevel(){
         duplicates += calculateDuplicates(lines);
     };
     real duplication = duplicates * 100 / totalLines;
-    // println("Duplicated lines: <duplication>%");
-    // println("Total lines: <totalLines>");
+    println("Duplicated lines number: <duplicates>");
+    println("Duplicated lines percentage: <duplication>%");
+    println("Total lines: <totalLines>");
 
     if(duplication <= 3.0){
         return 5;
@@ -53,7 +53,7 @@ public int duplicationLevel(){
     }
 }
 
-private int calculateDuplicates(list[str] lines) {
+public int calculateDuplicates(list[str] lines) {
     int windowSize = 6;
     if(size(lines) < windowSize){
         return 0;

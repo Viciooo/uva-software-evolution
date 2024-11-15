@@ -127,3 +127,117 @@
    
    Unit testing metric could be enchanced with mutation testing. Code coverage only says, that the project may be tested enough - not if it is. While counting asserts gives some insights it is not informative enough.
 
+#### Result of running on smallsql:
+---------------VOLUME---------------
+Total lines of code: 22210 KLOC
+Volume rank: ++
+---------------VOLUME END---------------
+---------------DUPLICATION---------------
+Duplicated lines number: 804
+Duplicated lines percentage: 3.818026403%
+Total lines: 21058.0
+Duplication rank: +
+---------------DUPLICATION END---------------
+---------------UNIT SIZE---------------
+Moderate: 11.15965429
+High:11.67252351
+Very high: 9.079684680
+Unit size rank: --
+---------------UNIT SIZE END---------------
+---------------UNIT COMPLEXITY---------------
+Moderate: 7.804966797
+High:13.72691713
+Very high: 5.908305285
+Unit complexity rank: --
+---------------UNIT COMPLEXITY END---------------
+---------------MAINTAINABILITY---------------
+Maintainability rank: -
+---------------MAINTAINABILITY END---------------
+---------------ANALISABILITY---------------
+Analisability rank: o
+---------------ANALISABILITY END---------------
+---------------CHANGEABILITY---------------
+Changeability rank: -
+---------------CHANGEABILITY END---------------
+---------------TESTABILITY---------------
+Testability rank: --
+---------------TESTABILITY END---------------
+---------------COUPLING---------------
+Coupling between objects (CBO) statistics:
+Average number of dependencies per class: 2
+Max number of dependencies in a class: 29
+Most coupled classes: ["/smallsql/database/SQLParser"]
+---------------COUPLING END---------------
+---------------UNIT TESTING---------------
+Mean asserts per test method: 4.441988950
+Median asserts per test method: 3.
+25% of test functions have <= 1 asserts
+50% of test functions have <= 3 asserts
+75% of test functions have <= 5 asserts
+---------------UNIT TESTING END---------------
+ok
+
+#### Results for hsqldb:
+---------------VOLUME---------------
+Total lines of code: 158171 KLOC
+Volume rank: +
+---------------VOLUME END---------------
+---------------DUPLICATION---------------
+Duplicated lines number: 7368
+Duplicated lines percentage: 4.910199593%
+Total lines: 150055.0
+Duplication rank: +
+---------------DUPLICATION END---------------
+---------------UNIT SIZE---------------
+Moderate: 14.44537003
+High:15.93015894
+Very high: 19.90070308
+Unit size rank: --
+---------------UNIT SIZE END---------------
+---------------UNIT COMPLEXITY---------------
+Moderate: 12.96904441
+High:10.80650171
+Very high: 14.68474997
+Unit complexity rank: --
+---------------UNIT COMPLEXITY END---------------
+---------------MAINTAINABILITY---------------
+Maintainability rank: -
+---------------MAINTAINABILITY END---------------
+---------------ANALISABILITY---------------
+Analisability rank: o
+---------------ANALISABILITY END---------------
+---------------CHANGEABILITY---------------
+Changeability rank: -
+---------------CHANGEABILITY END---------------
+---------------TESTABILITY---------------
+Testability rank: --
+---------------TESTABILITY END---------------
+---------------COUPLING---------------
+Coupling between objects (CBO) statistics:
+Average number of dependencies per class: 9
+Max number of dependencies in a class: 68
+Most coupled classes: ["/org/hsqldb/dbinfo/DatabaseInformationFull"]
+---------------COUPLING END---------------
+---------------UNIT TESTING---------------
+Mean asserts per test method: 2.615384615
+Median asserts per test method: 0.
+25% of test functions have <= 0 asserts
+50% of test functions have <= 0 asserts
+75% of test functions have <= 4 asserts
+---------------UNIT TESTING END---------------
+ok
+
+#### Steps to recreate:
+```
+import Main;
+main(|your project location|);
+```
+
+#### How to run tests?
+```
+import Tests;
+:test
+```
+
+
+

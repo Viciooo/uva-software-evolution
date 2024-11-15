@@ -36,27 +36,28 @@ private list[str] removeComments(list[str] lines) {
 
     return result;
 }
-// /Users/spoton/Documents/uva/evolution/test-java-project1
-// /Users/spoton/Documents/uva/evolution/hsqldb-2.3.1
-// /Users/spoton/Documents/uva/evolution/smallsql0.21_src
-private loc projectLocation = |file:///Users/spoton/Documents/uva/evolution/smallsql0.21_src|;
+
 private str fileContent(loc file) = readFile(file);
 public list[str] fileContentLines(loc file) = removeComments(splitLines(fileContent(file)));
 
-public list[loc] getMethods() = toList(methods(getModel()));
-public list[loc] getClasses() = toList(classes(getModel()));
+public list[loc] getMethods(loc projectLocation) = toList(methods(getModel(projectLocation)));
+public list[loc] getClasses(loc projectLocation) = toList(classes(getModel(projectLocation)));
 public int fileLoc(loc file) = size(fileContentLines(file));
 
 
-public list[Declaration] getASTs() {
+public list[Declaration] getASTs(loc projectLocation) {
     M3 model = createM3FromMavenProject(projectLocation);
     list[Declaration] asts = [createAstFromFile(f, true)
     | f <- files(model.containment), isCompilationUnit(f)];
     return asts;
 }
 
-public M3 getModel() {
+public M3 getModel(loc projectLocation) {
 	return createM3FromDirectory(projectLocation);
+}
+
+public M3 getModelFromFile(loc file) {
+    return createM3FromFile(file);
 }
 
 public str mapLevelToRank(int level) {

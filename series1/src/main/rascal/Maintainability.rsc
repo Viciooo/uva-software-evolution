@@ -29,51 +29,73 @@ public int testabilityLevel(int complexity, int unitSize){
 }
 
 
-public str maintainabilityRank(int volume, int duplication, int unitSize, int complexity){
-    int maintainability = (
+public void printMaintainabilityRank(int volume, int duplication, int unitSize, int complexity){
+    int rank = (
         analisabilityLevel(volume, duplication, unitSize) + 
         changeabilityLevel(complexity, duplication) +
         testabilityLevel(complexity, unitSize)
     ) / 3;
-
-    str rank = mapLevelToRank(maintainability);
-    return "Maintainability rank: <rank>";
+    println("Maintainability rank: <mapLevelToRank(rank)>");
 }
 
-public str analisabilityRank(int volume, int duplication, int unitSize){
+public void printAnalisabilityRank(int volume, int duplication, int unitSize){
     str rank = mapLevelToRank(analisabilityLevel(volume, duplication, unitSize));
-    return "Analisability rank: <rank>";
+    println("Analisability rank: <rank>");
 }
 
-public str changeabilityRank(int complexity, int duplication){
+public void printChangeabilityRank(int complexity, int duplication){
     str rank = mapLevelToRank(changeabilityLevel(complexity, duplication));
-    return "Changeability rank: <rank>";
+    println("Changeability rank: <rank>");
 }
 
-public str testabilityRank(int complexity, int unitSize){
+public void printTestabilityRank(int complexity, int unitSize){
     str rank = mapLevelToRank(testabilityLevel(complexity, unitSize));
-    return "Testability rank: <rank>";
+    println("Testability rank: <rank>");
 }
 
-public void printAllMetrics(){
-    int volume = volumeLevel();
-    println(volumeRank());
+public void printAllMetrics(loc project){
+    println("---------------VOLUME---------------");
+    int volume = volumeLevel(project);
+    printVolumeRank(volume);
+    println("---------------VOLUME END---------------");
 
-    int duplication = duplicationLevel();
-    println(duplicationRank());
+    println("---------------DUPLICATION---------------");
+    int duplication = duplicationLevel(project);
+    printDuplicationRank(duplication);
+    println("---------------DUPLICATION END---------------");
 
-    int unitSize = unitSizeLevel();
-    println(unitSizeRank());
+    println("---------------UNIT SIZE---------------");
+    int unitSize = unitSizeLevel(project);
+    printUnitSizeRank(unitSize);
+    println("---------------UNIT SIZE END---------------");
 
-    int complexity = unitComplexityLevel();
-    println(unitComplexityRank());
+    println("---------------UNIT COMPLEXITY---------------");
+    int complexity = unitComplexityLevel(project);
+    printUnitComplexityRank(complexity);
+    println("---------------UNIT COMPLEXITY END---------------");
 
-    println(maintainabilityRank(volume, duplication, unitSize, complexity));
-    println(analisabilityRank(volume, duplication, unitSize));
-    println(changeabilityRank(complexity, duplication));
-    println(testabilityRank(complexity, unitSize));
+    println("---------------MAINTAINABILITY---------------");
+    printMaintainabilityRank(volume, duplication, unitSize, complexity);
+    println("---------------MAINTAINABILITY END---------------");
 
-    println(calculateCoupling());
-    println(unitTestingAssertStatistics());
+    println("---------------ANALISABILITY---------------");
+    printAnalisabilityRank(volume, duplication, unitSize);
+    println("---------------ANALISABILITY END---------------");
+
+    println("---------------CHANGEABILITY---------------");
+    printChangeabilityRank(complexity, duplication);
+    println("---------------CHANGEABILITY END---------------");
+
+    println("---------------TESTABILITY---------------");
+    printTestabilityRank(complexity, unitSize);
+    println("---------------TESTABILITY END---------------");
+
+    println("---------------COUPLING---------------");
+    calculateCoupling(project);
+    println("---------------COUPLING END---------------");
+
+    println("---------------UNIT TESTING---------------");
+    unitTestingAssertStatistics(project);
+    println("---------------UNIT TESTING END---------------");
 }
 

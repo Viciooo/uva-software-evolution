@@ -10,8 +10,8 @@ import analysis::statistics::Descriptive;
 import String;
 
 
-public void unitTestingAssertStatistics(){
-    list[loc] methods = getMethods();
+public void unitTestingAssertStatistics(project){
+    list[loc] methods = getMethods(project);
     list[loc] methodsWithTest = [m | m <- methods, contains(m.file, "test")];
     list[int] assertCounts = sort([countAsserts(fileContentLines(m)) | m <- methodsWithTest]);
     real meanAsserts = mean(assertCounts);
@@ -25,7 +25,7 @@ public void unitTestingAssertStatistics(){
 
 }
 
-private int countAsserts(list[str] textContent){
+public int countAsserts(list[str] textContent){
     int counter = 0;
     for(l <- textContent){
         if(contains(l, "assert")) counter += 1;

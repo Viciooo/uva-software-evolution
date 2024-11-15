@@ -6,9 +6,10 @@ import Set;
 import String;
 import lang::java::m3::Core;
 import lang::java::m3::AST;
+import IO;
 
-public map[str, value] calculateCoupling() {
-    list[loc] classes = getClasses();
+public void calculateCoupling(project) {
+    list[loc] classes = getClasses(project);
     classDependencies = [];
 
     for (loc file <- classes) {
@@ -26,11 +27,10 @@ public map[str, value] calculateCoupling() {
     int maxDependency = max(cboValues);
     list[value] mostCoupledClasses = [className | <className, dependencies> <- classDependencies, dependencies == maxDependency];
 
-    return (
-        "averageCBO": totalDependency / totalClasses,
-        "maxCBO": maxDependency,
-        "mostCoupledClasses": mostCoupledClasses
-    );
+    println("Coupling between objects (CBO) statistics:");
+    println("Average number of dependencies per class: <totalDependency / totalClasses>");
+    println("Max number of dependencies in a class: <maxDependency>");
+    println("Most coupled classes: <mostCoupledClasses>");
 }
 
 public int calculateClassDepencies(loc fileLoc) {

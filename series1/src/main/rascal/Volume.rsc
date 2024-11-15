@@ -6,12 +6,13 @@ import List;
 import lang::java::m3::Core;
 import lang::java::m3::AST;
 
-public int volumeLevel(){
+public int volumeLevel(project){
     int locNum = 0;
-    for (class <- getClasses()) {
+    for (class <- getClasses(project)) {
         locNum += fileLoc(class);
     }
-    println("Total lines of code: <locNum>KLOC");
+    println("Total lines of code: <locNum> KLOC");
+    
     if(locNum <= 66000){
         return 5;
     } else if(locNum <= 246000){
@@ -27,8 +28,6 @@ public int volumeLevel(){
     }
 }
 
-public str volumeRank(){
-    println("==========================");
-    str rank = mapLevelToRank(volumeLevel());
-    return "Volume rank: <rank>\n==========================";
+public void printVolumeRank(int level){
+    println("Volume rank: <mapLevelToRank(level)>");
 }

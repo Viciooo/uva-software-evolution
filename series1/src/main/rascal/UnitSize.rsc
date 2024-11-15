@@ -31,8 +31,8 @@ import util::Math;
 // -- - - -
 
 
-private list[int] calculateUnitSize(){
-    list[loc] methods = getMethods();
+private list[int] calculateUnitSize(project){
+    list[loc] methods = getMethods(project);
     list[int] sizes = [];
     for(loc method <- methods){
         sizes += [fileLoc(method)];
@@ -40,8 +40,8 @@ private list[int] calculateUnitSize(){
     return sizes;
 }
 
-private tuple[real,real,real] calculateUnitSizeBuckets(){
-    list[int] unitSizes = calculateUnitSize();
+private tuple[real,real,real] calculateUnitSizeBuckets(project){
+    list[int] unitSizes = calculateUnitSize(project);
     real low = 0.0;
     real medium = 0.0;
     real high = 0.0;
@@ -62,13 +62,13 @@ private tuple[real,real,real] calculateUnitSizeBuckets(){
     return <medium*100/totalLoc, high*100/totalLoc, veryHigh*100/totalLoc>;
 }
 
-public int unitSizeLevel(){
-    tuple[real,real,real] buckets = calculateUnitSizeBuckets();
+public int unitSizeLevel(loc project){
+    tuple[real,real,real] buckets = calculateUnitSizeBuckets(project);
     
     real moderate = buckets[0];
     real high = buckets[1];
     real veryHigh = buckets[2];
-
+    println("Moderate: <moderate>\nHigh:<high>\nVery high: <veryHigh>");
     if(moderate <= 25.0 && high <= 0.0 && veryHigh <= 0.0){
         return 5;
     }else if(moderate <= 30.0 && high <= 5.0 && veryHigh <= 0.0){
@@ -82,7 +82,6 @@ public int unitSizeLevel(){
     }
 }
 
-public str unitSizeRank(){
-    str rank = mapLevelToRank(unitSizeLevel());
-    return "Unit size rank: <rank>";
+public void printUnitSizeRank(int level){
+    println("Unit size rank: <mapLevelToRank(level)>");
 }
