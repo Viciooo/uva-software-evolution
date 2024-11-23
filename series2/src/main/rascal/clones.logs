@@ -1,0 +1,18 @@
+=======================================================
+System.out.println();while(rs.next()){for(int i=1; i<=count; i++){System.out.print(rs.getObject(i));System.out.print('\t');}System.out.println();}
+=======================================================
+=======================================================
+System.out.print('\t');}System.out.println();
+=======================================================
+
+biggestCloneClass: clone("System.out.println();while(rs.next()){for(int i=1; i\<=count; i++){System.out.print(rs.getObject(i));System.out.print(\'\\t\');}System.out.println();}",[|java+method:///CommandLine/printRS(ResultSet)|,|java+method:///CommandLine/printRS(ResultSet)|],8)
+mostFrequentClone: clone("System.out.print(\'\\t\');}System.out.println();",[|java+method:///CommandLine/printRS(ResultSet)|,|java+method:///CommandLine/printRS(ResultSet)|,|java+method:///CommandLine/printRS(ResultSet)|],3)
+=======================================================
+System.out.println();while(rs.next()){for(int i=1; i<=count; i++){System.out.print(rs.getObject(i));System.out.print('\t');}System.out.println();}
+=======================================================
+=======================================================
+System.out.print('\t');}System.out.println();
+=======================================================
+
+biggestCloneClass: clone("System.out.println();while(rs.next()){for(int i=1; i\<=count; i++){System.out.print(rs.getObject(i));System.out.print(\'\\t\');}System.out.println();}",[|java+method:///CommandLine/printRS(ResultSet)|,|java+method:///CommandLine/printRS(ResultSet)|],8)
+mostFrequentClone: clone("System.out.print(\'\\t\');}System.out.println();",[|java+method:///CommandLine/printRS(ResultSet)|,|java+method:///CommandLine/printRS(ResultSet)|,|java+method:///CommandLine/printRS(ResultSet)|],3)
