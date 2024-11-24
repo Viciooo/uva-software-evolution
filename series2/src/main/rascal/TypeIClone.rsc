@@ -3,12 +3,14 @@ module TypeIClone
 import IO;
 import List;
 import Map;
+import Set;
 import String;
 import lang::java::m3::Core;
 import lang::java::m3::AST;
 import util::Math;
 import Utils;
 import util::Reflective;
+import util::Benchmark;
 
 private int stringToHash(str text) {
     return getHashCode(text);
@@ -17,6 +19,8 @@ private int stringToHash(str text) {
 data Clone = clone(str content,list[loc] cloneLocs,int window);
 
 public void findClones(loc project) {
+    real startTime = realTime()/1000.0;
+
     map[int, Clone] clones = ();
     list[loc] methods = getMethods(project);
     int window = 3;
@@ -30,12 +34,13 @@ public void findClones(loc project) {
     Clone mostFrequentClone = clone("",[],0);
 
     while(clonesFoundForWindow) {
+        logMsgAndTime("Looking for duplicates of size <window>...",startTime);
         clonesFoundForWindow = false;
         for(loc method <- methods) {
             list[str] lines = fileContentLines(method);
 
             list[str] allSubsets = subsetsOfSize(lines,window);
-            lrel[str, int] allSubsetsWithCounts = compressList(allSubsets);
+            lrel[str, int] allSubsetsWithCounts = compressDuplicatesList(allSubsets);
 
             for (<s,c> <- allSubsetsWithCounts) {
                 int h = stringToHash(s);
@@ -49,6 +54,9 @@ public void findClones(loc project) {
                 if(size(clones[h].cloneLocs) > 1){
                     clonesFoundForWindow=true;
                     biggestCloneClass = clones[h];
+                    // appendToFile(|file:///Users/spoton/Documents/uva/evolution/uva-software-evolution/series2/src/main/rascal/clones.logs|, "=======================================================\n");
+                    // appendToFile(|file:///Users/spoton/Documents/uva/evolution/uva-software-evolution/series2/src/main/rascal/clones.logs|, "<clones[h]>\n");
+                    // appendToFile(|file:///Users/spoton/Documents/uva/evolution/uva-software-evolution/series2/src/main/rascal/clones.logs|, "=======================================================\n");
                 }
 
                 if(size(clones[h].cloneLocs) > size(mostFrequentClone.cloneLocs)){
@@ -60,15 +68,14 @@ public void findClones(loc project) {
         window += 1;
 
         if(clonesFoundForWindow){
-            set[loc] methods = reduceMethodsToThoseWithClones(clones);
+            set[loc] methods = reduceMethodsToThoseWithNewlyFoundClones(clones,window);
         }
     }
+    logMsgAndTime("Removing smaller containing clones...",startTime);
     clones = removeClonesStrictlyContainingInBiggerClone(clones);
-    list[Clone] cloneList = [clones[h] | h <- domain(clones)];
 
-    // A report of cloning statistics showing at least the % of duplicated lines,
-    // number of clones, number of clone classes, biggest clone (in lines),
-    // biggest clone class (in members), and example clones.
+    logMsgAndTime("Preparing statistics...",startTime);
+    list[Clone] cloneList = [clones[h] | h <- domain(clones)];
     for (c <- cloneList){
         duplicatedLines += c.window*size(c.cloneLocs);
     }
@@ -92,15 +99,13 @@ public void findClones(loc project) {
         println("Number of members: <size(c.cloneLocs)>");
         println("Locations with clones:\n<c.cloneLocs>\n");
     }
+}
 
-    // for(c <- cloneList){
-    //     appendToFile(|file:///Users/spoton/Documents/uva/evolution/uva-software-evolution/series2/src/main/rascal/clones.logs|, "=======================================================\n");
-    //     appendToFile(|file:///Users/spoton/Documents/uva/evolution/uva-software-evolution/series2/src/main/rascal/clones.logs|, "<c.content>\n");
-    //     appendToFile(|file:///Users/spoton/Documents/uva/evolution/uva-software-evolution/series2/src/main/rascal/clones.logs|, "=======================================================\n");
-    // }
-
-    // appendToFile(|file:///Users/spoton/Documents/uva/evolution/uva-software-evolution/series2/src/main/rascal/clones.logs|, "\nbiggestCloneClass: <biggestCloneClass>\n");
-    // appendToFile(|file:///Users/spoton/Documents/uva/evolution/uva-software-evolution/series2/src/main/rascal/clones.logs|, "mostFrequentClone: <mostFrequentClone>\n");
+private void logMsgAndTime(str msg,real startTime){
+    real endTime = realTime()/1000.0;
+    real elapsedTime = endTime - startTime;
+    println("Time elapsed: <elapsedTime>s");
+    println(msg);
 }
 
 private map[int,Clone] removeClonesOfSize1(map[int,Clone] clones){
@@ -119,55 +124,26 @@ private map[int,Clone] removeClonesOfSize1(map[int,Clone] clones){
     return clones;
 }
 
-private set[loc] reduceMethodsToThoseWithClones(map[int,Clone] clones){
+private set[loc] reduceMethodsToThoseWithNewlyFoundClones(map[int,Clone] clones,int window){
     set[loc] locs = {};
 
     for (int h <- domain(clones)) {
-        locs += toSet(clones[h].cloneLocs);
+        if(clones[h].window == window){
+            locs += toSet(clones[h].cloneLocs);
+        }
     }
     return locs;
 }
 
-public list[str] subsetsOfSize(list[str] lines, int s){
-    list[str] result = [];
-
-    if (s > size(lines)) {
-        return result;
-    }
-    for (int i <- [0..size(lines)-s]) {
-        str subset = "";
-        for(int j <- [i..i+s]){
-            subset += lines[j];
-        }
-        result += [subset];
-    }
-    return result;
-}
-
-public lrel[str,int] compressList(list[str] givenList){
-    map[str, int] counts = ();
-    for (str item <- givenList) {
-        if (item in counts) {
-            counts[item] += 1;
-        } else {
-            counts[item] = 1;
-        }
-    }
-    return [<k, v> | k <- domain(counts), v <- [counts[k]]];
-}
-
 private map[int,Clone] removeClonesStrictlyContainingInBiggerClone(map[int,Clone] clones){
+    println("removeClonesStrictlyContainingInBiggerClone: <size(domain(clones))>");
     set[int] keysToDelete = {};
     for(int i <- domain(clones)){
         for(int j <- domain(clones)){
             if(i==j) continue;
-
             bool frequencyMatches = size(clones[i].cloneLocs)==size(clones[j].cloneLocs);
             if(frequencyMatches && contains(clones[i].content,clones[j].content)){
                 keysToDelete += j;
-            }
-            if(frequencyMatches && contains(clones[j].content,clones[i].content)){
-                keysToDelete += i;
             }
         }    
     }

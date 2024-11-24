@@ -4,11 +4,10 @@ import lang::java::m3::AST;
 import IO;
 import List;
 import Set;
+import Map;
 import String;
 
 private list[str] splitLines(str text) = [ s | s <- split("\n", text), /^\s*$/ !:= s ];
-private list[str] trimLines(list[str] lines) = [ trim(l) | l <- lines ];
-
 private list[str] removeComments(list[str] lines) {
     list[str] result = [];
     bool inBlockComment = false;
@@ -60,13 +59,30 @@ public M3 getModelFromFile(loc file) {
     return createM3FromFile(file);
 }
 
-public str mapLevelToRank(int level) {
-    switch(level) {
-        case 1: return "--";
-        case 2: return "-";
-        case 3: return "o";
-        case 4: return "+";
-        case 5: return "++";
-        default: return "błąd";
+public lrel[str,int] compressDuplicatesList(list[str] givenList){
+    map[str, int] counts = ();
+    for (str item <- givenList) {
+        if (item in counts) {
+            counts[item] += 1;
+        } else {
+            counts[item] = 1;
+        }
     }
+    return [<k, v> | k <- domain(counts), v <- [counts[k]]];
+}
+
+public list[str] subsetsOfSize(list[str] lines, int s){
+    list[str] result = [];
+
+    if (s > size(lines)) {
+        return result;
+    }
+    for (int i <- [0..size(lines)-s]) {
+        str subset = "";
+        for(int j <- [i..i+s]){
+            subset += lines[j];
+        }
+        result += [subset];
+    }
+    return result;
 }
