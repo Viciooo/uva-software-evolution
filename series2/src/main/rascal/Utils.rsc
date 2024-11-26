@@ -7,12 +7,21 @@ import Set;
 import Map;
 import String;
 
-private list[str] splitLines(str text) = [ s | s <- split("\n", text), /^\s*$/ !:= s ];
-private list[str] removeComments(list[str] lines) {
+private list[str] splitLines(str text) = [ s | s <- split("\n", text)];
+private tuple[list[str],list[int]] removeCommentsAndWhitespace(list[str] lines) {
     list[str] result = [];
+    list[int] indexes = [];
+    int idx = -1;
     bool inBlockComment = false;
+
     for (str line <- lines) {
-        line = trim(line);
+        idx+=1;
+
+        if (/^\s*$/ := line) {
+            continue;
+        }
+
+        line = trim(line); // this is breaking formating - maybe we save it as a field in clone model?
 
         if (inBlockComment) {
             if (contains(line,"*/")) {
@@ -31,17 +40,26 @@ private list[str] removeComments(list[str] lines) {
         }
 
         result += [line];
+        indexes += [idx];
+
     }
 
-    return result;
+    return <result,indexes>;
 }
 
 private str fileContent(loc file) = readFile(file);
-public list[str] fileContentLines(loc file) = removeComments(splitLines(fileContent(file)));
+public tuple[list[str],list[int]] fileContentLines(loc file){
+    // [lines,indexes] - to help visualize the clones despite the normalization
+    // We planned using loc.begin.line and loc.end.line, but they don't work
+    // in java+method locs - getting UnavailableInformation()
+
+    list[str] lines = splitLines(fileContent(file));
+    return removeCommentsAndWhitespace(lines);
+}
 
 public list[loc] getMethods(loc projectLocation) = toList(methods(getModel(projectLocation)));
 public list[loc] getClasses(loc projectLocation) = toList(classes(getModel(projectLocation)));
-public int fileLoc(loc file) = size(fileContentLines(file));
+public int fileLoc(loc file) = size(fileContentLines(file)[0]);
 
 
 public list[Declaration] getASTs(loc projectLocation) {
@@ -59,30 +77,4 @@ public M3 getModelFromFile(loc file) {
     return createM3FromFile(file);
 }
 
-public lrel[str,int] compressDuplicatesList(list[str] givenList){
-    map[str, int] counts = ();
-    for (str item <- givenList) {
-        if (item in counts) {
-            counts[item] += 1;
-        } else {
-            counts[item] = 1;
-        }
-    }
-    return [<k, v> | k <- domain(counts), v <- [counts[k]]];
-}
 
-public list[str] subsetsOfSize(list[str] lines, int s){
-    list[str] result = [];
-
-    if (s > size(lines)) {
-        return result;
-    }
-    for (int i <- [0..size(lines)-s]) {
-        str subset = "";
-        for(int j <- [i..i+s]){
-            subset += lines[j];
-        }
-        result += [subset];
-    }
-    return result;
-}
