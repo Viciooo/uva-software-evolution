@@ -1,5 +1,4 @@
 module TypeIClone
-import Exception;
 import IO;
 import List;
 import Map;
@@ -12,70 +11,61 @@ import Utils;
 import util::Reflective;
 import util::Benchmark;
 
-private int stringToHash(str text) {
-    return getHashCode(text);
-}
-data CloneLoc = cloneLoc(loc locFile,int startLine,int lastLine);
-data PotentialClone = potentialClone(str content,int startLine,int lastLine);
-data Clone = clone(str content,list[CloneLoc] cloneLocs,int window);
-data MethodData = methodData(list[str] lines,list[int] indexes, loc method);
+import Presentation;
+import DataTypes;
 
 public void findClones(loc project) {
     real startTime = realTime()/1000.0;
 
-    list[loc] methods = getMethods(project);
-    int window = 30;
-    list[Clone] clones = [];
+    list[loc] methods = getMethods(project); // gets all method location within the project directory
+    int window = 3; // starting window size. We use it for detecting clones using moving window
+    list[Clone] clones = []; // result list of detected clones.
 
-    map[int,MethodData] methodData = getMethodData(methods);
+    map[int,MethodData] methodData = getMethodData(methods); // hashed loc strings are the keys, values are what we need to find clones
 
-    result = getInitialClones(methodData,window);
+    result = getInitialClones(methodData,window); // initial clones are created using unique process, later we just try to build on top of found clones.
+    // We do it by trying to include next line. We take clone of size X and try to make it of size X+1 by appending the next line and checking if that is a clone.
 
-    list[Clone] clonesLastIteration = result[0];
+    list[Clone] clonesLastIteration = result[0]; // for each iteration we will need last iteration to build on top of, via clone extension
     methodData = result[1];
-    Clone biggestCloneClass = result[2];
-    Clone mostFrequentClone = result[3];
+    Clone biggestCloneClass = result[2]; // biggestCloneClass is a clone class with the most lines
+    Clone mostFrequentClone = result[3]; // mostFrequentClone is a clone that is repeated te most
 
-    if(size(clonesLastIteration) == 0){
+    if(size(clonesLastIteration) == 0){ // if no clones are found in the first iteration, no reason to continue
         println("No clones of size <window> found!");
         return;
     }
-    window+=1;
     bool clonesFoundForWindow = true;
-    real totalLOC = 0.0;
-    for(m <- methods){
-        totalLOC += fileLoc(m)*1.0;
-    }
-    real duplicatedLines = 0.0;
+    window+=1;
 
     while(clonesFoundForWindow) {
         logMsgAndTime("Looking for duplicates of size <window>...",startTime);
         clonesFoundForWindow = false;
-        list[Clone] clonesThisIteration = [];
+        list[Clone] clonesThisIteration = []; // each iteration we start with an empty list
 
-        for(Clone c <- clonesLastIteration){
-            map[str,list[CloneLoc]] nextLine = ();
-            list[CloneLoc] skipped = [];
+        for(Clone c <- clonesLastIteration){ // for each clone of last iteration we will try to extend it into clone of size +1
+            map[str,list[CloneLoc]] nextLine = (); // map stores nextLines of a clone for each group of clone locations
+            list[CloneLoc] noExtensionPossible = []; // clone locs with no possible extensions
             for(CloneLoc cl <- c.cloneLocs){
-                int locHash = stringToHash("<cl.locFile>");
+                int locHash = stringToHash("<cl.locFile>"); // we create loc hash to get information about normalised method
                 MethodData md = methodData[locHash];
-                int idxInIndexes = indexOf(md.indexes,cl.lastLine);
-                if(cl.lastLine == md.indexes[-1]){ // if last line of clone is last line of method - skip
-                    skipped += [cl];
+                int idxInIndexes = indexOf(md.indexes,cl.lastLine); // gets index of line in normalised method of clone location's last line 
+                if(cl.lastLine == md.indexes[-1]){ // if last line of clone is last line of method - extension not possible
+                    noExtensionPossible += [cl];
                     continue;
                 }
-                int newLastIdx = md.indexes[idxInIndexes+1]; // gets real line in normalised file
-                str newLastLine = md.lines[idxInIndexes+1]; // gets next line value
-                if(newLastLine in domain(nextLine)){
+                int newLastIdx = md.indexes[idxInIndexes+1]; // gets index in not normalised file
+                str newLastLine = md.lines[idxInIndexes+1]; // gets new last line value
+                if(newLastLine in domain(nextLine)){ // we want to group them by new last line, each key with at least 2 values is a new clone
                     nextLine[newLastLine] += [cl];
                 }else{
                     nextLine[newLastLine] = [cl];
                 }
             }
 
-            if(size(domain(nextLine)) == 1 && size(skipped) == 0){ // all can be extended, then this clone is redundant, because there is a bigger one
+            if(size(domain(nextLine)) == 1 && size(noExtensionPossible) == 0){ // all can be extended, then this clone is redundant, because there is a bigger one
                 list[CloneLoc] newLocs = [];
-                str newLastLine = "&"; // some dummy init
+                str newLastLine;
                 for(l <- c.cloneLocs){
                     locHash = stringToHash("<l.locFile>");
                     md = methodData[locHash];
@@ -96,8 +86,8 @@ public void findClones(loc project) {
                 }
                 continue;
             }
-            if(size(skipped) > 1){ // if at least 2 were skipped then we have a final clone to save
-                clones += [clone(c.content,skipped,c.window)];
+            if(size(noExtensionPossible) > 1){ // if at least 2 were noExtensionPossible then we have a final clone to save
+                clones += [clone(c.content,noExtensionPossible,c.window)];
                 biggestCloneClass = c;
                 if(size(c.cloneLocs) > size(mostFrequentClone.cloneLocs)){
                     mostFrequentClone = c;
@@ -108,7 +98,7 @@ public void findClones(loc project) {
             for(str s <- domain(nextLine)){
                 list[CloneLoc] thoseClonLocs = nextLine[s];
 
-                if(size(thoseClonLocs) > 1){
+                if(size(nextLine[s]) > 1){ // if at least 2 locations have the same extension then we have a next clone
                     list[CloneLoc] newLocs = [];
                     for(l <- thoseClonLocs){
                         locHash = stringToHash("<l.locFile>");
@@ -118,7 +108,7 @@ public void findClones(loc project) {
                         newLocs += [cloneLoc(l.locFile,l.startLine,newLastIdx)];
                     }
                     clonesThisIteration += [clone(c.content+s,newLocs,c.window+1)];
-                }else{
+                }else{ // if clone locs have differing extensions, then there will be no bigger clone with them
                     finalLocs += thoseClonLocs;
                 }
             }
@@ -134,38 +124,12 @@ public void findClones(loc project) {
         if(size(clonesThisIteration) > 0){
             println("size(clonesThisIteration): <size(clonesThisIteration)>");
             window += 1;
-            clonesFoundForWindow = true; // commented for tests
-            clonesLastIteration = clonesThisIteration;
+            clonesFoundForWindow = true;
+            clonesLastIteration = clonesThisIteration; // naturally with the end of iteration this iteration becomes last iteration
         }
     }
-    logMsgAndTime("Preparing statistics...",startTime);
-    for (c <- clones){
-        duplicatedLines += c.window*size(c.cloneLocs);
-    }
-    real percentDuplicatedLines = duplicatedLines*100.0 / totalLOC;
-    println("percentDuplicatedLines: <percentDuplicatedLines>%");
-    int numberOfCloneClasses = size(clones);
-    println("numberOfCloneClasses: <numberOfCloneClasses>");
-    int numberOfClones = 0;
-    for(c <- clones){
-        numberOfClones += size(c.cloneLocs);
-    }
-    println("numberOfClones: <numberOfClones>");
-    int biggestClonInLines = biggestCloneClass.window;
-    println("biggestClonInLines: <biggestClonInLines>");
-
-    println("biggestCloneClass.content: <biggestCloneClass.content>");
-    println("biggestCloneClass.cloneLocs: <biggestCloneClass.cloneLocs>");
-
-    int biggestClonInMembers = size(mostFrequentClone.cloneLocs);
-    println("biggestClonInMembers: <biggestClonInMembers>");
-    println("\nExample clones:");
-    for(c <- clones[0..3]){
-        println("Content:\n<c.content>");
-        println("Number of lines: <c.window>");
-        println("Number of members: <size(c.cloneLocs)>");
-        println("Locations with clones:\n<c.cloneLocs>\n");
-    }
+    printStatistics(startTime,clones,biggestCloneClass,mostFrequentClone, methods);
+    writeClonesToJson(clones);
     logMsgAndTime("\nFinished in:",startTime);
 }
 
@@ -212,14 +176,6 @@ private tuple[list[Clone],map[int,MethodData],Clone,Clone] getInitialClones(map[
     return <cloneList,methodData,biggestCloneClass,mostFrequentClone>;
 }
 
-
-private void logMsgAndTime(str msg,real startTime){
-    real endTime = realTime()/1000.0;
-    real elapsedTime = endTime - startTime;
-    println("Time elapsed: <elapsedTime>s");
-    println(msg);
-}
-
 private map[int,Clone] removeClonesOfSize1(map[int,Clone] clones){
     set[int] keysToDelete = {};
     
@@ -250,15 +206,4 @@ private list[PotentialClone] potentialClonesOfSize(list[str] lines, list[int] in
         result += [pc];
     }
     return result;
-}
-
-private map[int,MethodData] getMethodData(list[loc] methods){
-    map[int,MethodData] md = ();
-
-    for(loc m <- methods){
-        result = fileContentLines(m);
-        h = stringToHash("<m>");
-        md[h] = methodData(result[0],result[1],m);
-    }
-    return md;
 }

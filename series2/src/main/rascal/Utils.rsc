@@ -6,6 +6,9 @@ import List;
 import Set;
 import Map;
 import String;
+import util::Reflective;
+
+import DataTypes;
 
 private list[str] splitLines(str text) = [ s | s <- split("\n", text)];
 private tuple[list[str],list[int]] removeCommentsAndWhitespace(list[str] lines) {
@@ -77,4 +80,18 @@ public M3 getModelFromFile(loc file) {
     return createM3FromFile(file);
 }
 
+public int stringToHash(str text) {
+    return getHashCode(text);
+}
+
+public map[int,MethodData] getMethodData(list[loc] methods){
+    map[int,MethodData] md = ();
+
+    for(loc m <- methods){
+        result = fileContentLines(m);
+        h = stringToHash("<m>");
+        md[h] = methodData(result[0],result[1],m);
+    }
+    return md;
+}
 
