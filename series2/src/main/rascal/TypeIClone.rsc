@@ -73,7 +73,7 @@ public void findClones(loc project) {
                     newLastIdx = md.indexes[idxInIndexes+1]; // gets real line in normalised file
                     newLastLine = md.lines[idxInIndexes+1];
                     l.lastLine = newLastIdx;
-                    newLocs += [cloneLoc(l.locFile,l.startLine,newLastIdx)];
+                    newLocs += [cloneLoc(l.locFile,md.rawLines,l.startLine,newLastIdx)];
                 }
                 clonesThisIteration += [clone(c.content+newLastLine,newLocs,c.window+1)];
                 continue;
@@ -105,7 +105,7 @@ public void findClones(loc project) {
                         md = methodData[locHash];
                         idxInIndexes = indexOf(md.indexes,l.lastLine);
                         newLastIdx = md.indexes[idxInIndexes+1]; // gets real line in normalised file
-                        newLocs += [cloneLoc(l.locFile,l.startLine,newLastIdx)];
+                        newLocs += [cloneLoc(l.locFile,md.rawLines,l.startLine,newLastIdx)];
                     }
                     clonesThisIteration += [clone(c.content+s,newLocs,c.window+1)];
                 }else{ // if clone locs have differing extensions, then there will be no bigger clone with them
@@ -133,16 +133,17 @@ public void findClones(loc project) {
     logMsgAndTime("\nFinished in:",startTime);
 }
 
-private tuple[list[Clone],map[int,MethodData],Clone,Clone] getInitialClones(map[int,MethodData] methodData, int window){
+private tuple[list[Clone],map[int,MethodData],Clone,Clone] getInitialClones(map[int,MethodData] md, int window){
     Clone biggestCloneClass = clone("",[],0);
     Clone mostFrequentClone = clone("",[],0);
     set[int] usedMethods = {};
     map[int,Clone] clones = ();
 
-    for(int methodHash <- domain(methodData)) {
-        list[str] lines = methodData[methodHash].lines;
-        list[int] indexes = methodData[methodHash].indexes;
-        loc method = methodData[methodHash].method;
+    for(int methodHash <- domain(md)) {
+        list[str] lines = md[methodHash].lines;
+        list[int] indexes = md[methodHash].indexes;
+        loc method = md[methodHash].method;
+        str rawLines =  md[methodHash].rawLines;
 
         list[PotentialClone] allSubsets = potentialClonesOfSize(lines,indexes,window);
 
@@ -152,12 +153,12 @@ private tuple[list[Clone],map[int,MethodData],Clone,Clone] getInitialClones(map[
             if (h in clones) {
                 clones[h] = clone(
                     pc.content,
-                    clones[h].cloneLocs + [cloneLoc(method,pc.startLine,pc.lastLine)],
+                    clones[h].cloneLocs + [cloneLoc(method,rawLines,pc.startLine,pc.lastLine)],
                     window);
             } else {
                 clones[h] = clone(
                     pc.content,
-                    [cloneLoc(method,pc.startLine,pc.lastLine)],
+                    [cloneLoc(method,rawLines,pc.startLine,pc.lastLine)],
                     window);
             }
 
@@ -173,7 +174,7 @@ private tuple[list[Clone],map[int,MethodData],Clone,Clone] getInitialClones(map[
     }
     clones = removeClonesOfSize1(clones);
     cloneList = [clones[h] | h <- domain(clones)];
-    return <cloneList,methodData,biggestCloneClass,mostFrequentClone>;
+    return <cloneList,md,biggestCloneClass,mostFrequentClone>;
 }
 
 private map[int,Clone] removeClonesOfSize1(map[int,Clone] clones){

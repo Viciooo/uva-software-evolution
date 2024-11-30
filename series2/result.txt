@@ -1,0 +1,143 @@
+Percent Duplicated Lines: 72.77994112%
+numberOfCloneClasses: 1063
+Total Number Of Clones: 2651
+Biggest Clon In Lines:
+Content:
+if(isNull()) return null;int dataType = getDataType();switch(dataType){case SQLTokenizer.BIT:case SQLTokenizer.BOOLEAN:return getBoolean() ? Boolean.TRUE : Boolean.FALSE;case SQLTokenizer.BINARY:case SQLTokenizer.VARBINARY:return getBytes();case SQLTokenizer.TINYINT:case SQLTokenizer.SMALLINT:case SQLTokenizer.INT:return new Integer( getInt() );case SQLTokenizer.BIGINT:return new Long( getLong() );case SQLTokenizer.REAL:return new Float( getFloat() );case SQLTokenizer.FLOAT:case SQLTokenizer.DOUBLE:return new Double( getDouble() );case SQLTokenizer.MONEY:case SQLTokenizer.SMALLMONEY:return Money.createFromUnscaledValue( getMoney() );case SQLTokenizer.NUMERIC:case SQLTokenizer.DECIMAL:return getNumeric();case SQLTokenizer.CHAR:case SQLTokenizer.NCHAR:case SQLTokenizer.VARCHAR:case SQLTokenizer.NVARCHAR:case SQLTokenizer.LONGNVARCHAR:case SQLTokenizer.LONGVARCHAR:
+Number of lines: 32
+Number of members: 2
+Locations with clones:
+0:
+   |java+method:///smallsql/database/ExpressionFunctionReturnP1/getObject()|
+   Method line: 1 to 32
+
+1:
+   |java+method:///smallsql/database/ExpressionArithmetic/getObject()|
+   Method line: 1 to 32
+
+Biggest Clon In Members:
+Content:
+}catch(Exception e){throw SmallSQLException.createFromException( e );}
+Number of lines: 3
+Number of members: 30
+Locations with clones:
+0:
+   |java+method:///smallsql/database/SSCallableStatement/getDate(int)|
+   Method line: 6 to 8
+
+1:
+   |java+method:///smallsql/database/SSResultSet/getDate(int)|
+   Method line: 6 to 8
+
+2:
+   |java+method:///smallsql/database/SSCallableStatement/getBytes(int)|
+   Method line: 5 to 7
+
+3:
+   |java+method:///smallsql/database/SSResultSet/getFloat(int)|
+   Method line: 5 to 7
+
+4:
+   |java+method:///smallsql/database/SSCallableStatement/getTime(int)|
+   Method line: 6 to 8
+
+5:
+   |java+method:///smallsql/database/SSResultSet/getTimestamp(int)|
+   Method line: 6 to 8
+
+6:
+   |java+method:///smallsql/database/SSResultSet/getTime(int,java.util.Calendar)|
+   Method line: 9 to 11
+
+7:
+   |java+method:///smallsql/database/SSResultSet/getBoolean(int)|
+   Method line: 5 to 7
+
+8:
+   |java+method:///smallsql/database/SSCallableStatement/getString(int)|
+   Method line: 5 to 7
+
+9:
+   |java+method:///smallsql/database/SSResultSet/getLong(int)|
+   Method line: 5 to 7
+
+10:
+   |java+method:///smallsql/database/SSResultSet/getBigDecimal(int,int)|
+   Method line: 6 to 8
+
+11:
+   |java+method:///smallsql/database/SSCallableStatement/getObject(int)|
+   Method line: 5 to 7
+
+12:
+   |java+method:///smallsql/database/SSCallableStatement/getBoolean(int)|
+   Method line: 5 to 7
+
+13:
+   |java+method:///smallsql/database/SSResultSet/getBigDecimal(int)|
+   Method line: 6 to 8
+
+14:
+   |java+method:///smallsql/database/SSCallableStatement/getDouble(int)|
+   Method line: 5 to 7
+
+15:
+   |java+method:///smallsql/database/SSResultSet/getURL(int)|
+   Method line: 6 to 8
+
+16:
+   |java+method:///smallsql/database/SSCallableStatement/getFloat(int)|
+   Method line: 5 to 7
+
+17:
+   |java+method:///smallsql/database/SSResultSet/getInt(int)|
+   Method line: 5 to 7
+
+18:
+   |java+method:///smallsql/database/SSResultSet/getTimestamp(int,java.util.Calendar)|
+   Method line: 9 to 11
+
+19:
+   |java+method:///smallsql/database/SSResultSet/getBytes(int)|
+   Method line: 5 to 7
+
+20:
+   |java+method:///smallsql/database/SSCallableStatement/getLong(int)|
+   Method line: 5 to 7
+
+21:
+   |java+method:///smallsql/database/SSResultSet/getString(int)|
+   Method line: 13 to 15
+
+22:
+   |java+method:///smallsql/database/SSResultSet/getObject(int)|
+   Method line: 5 to 7
+
+23:
+   |java+method:///smallsql/database/SSCallableStatement/getTimestamp(int)|
+   Method line: 6 to 8
+
+24:
+   |java+method:///smallsql/database/SSResultSet/getTime(int)|
+   Method line: 6 to 8
+
+25:
+   |java+method:///smallsql/database/SSResultSet/getDate(int,java.util.Calendar)|
+   Method line: 9 to 11
+
+26:
+   |java+method:///smallsql/database/SSResultSet/getDouble(int)|
+   Method line: 5 to 7
+
+27:
+   |java+method:///smallsql/database/SSCallableStatement/getInt(int)|
+   Method line: 5 to 7
+
+28:
+   |java+method:///smallsql/database/SSCallableStatement/getBigDecimal(int,int)|
+   Method line: 6 to 8
+
+29:
+   |java+method:///smallsql/database/SSCallableStatement/getBigDecimal(int)|
+   Method line: 6 to 8
+

@@ -51,7 +51,7 @@ private tuple[list[str],list[int]] removeCommentsAndWhitespace(list[str] lines) 
 }
 
 private str fileContent(loc file) = readFile(file);
-public tuple[list[str],list[int]] fileContentLines(loc file){
+public tuple[list[str],list[int]] normalisedFileContentLines(loc file){
     // [lines,indexes] - to help visualize the clones despite the normalization
     // We planned using loc.begin.line and loc.end.line, but they don't work
     // in java+method locs - getting UnavailableInformation()
@@ -62,7 +62,7 @@ public tuple[list[str],list[int]] fileContentLines(loc file){
 
 public list[loc] getMethods(loc projectLocation) = toList(methods(getModel(projectLocation)));
 public list[loc] getClasses(loc projectLocation) = toList(classes(getModel(projectLocation)));
-public int fileLoc(loc file) = size(fileContentLines(file)[0]);
+public int fileLoc(loc file) = size(normalisedFileContentLines(file)[0]);
 
 
 public list[Declaration] getASTs(loc projectLocation) {
@@ -88,9 +88,10 @@ public map[int,MethodData] getMethodData(list[loc] methods){
     map[int,MethodData] md = ();
 
     for(loc m <- methods){
-        result = fileContentLines(m);
+        result = normalisedFileContentLines(m);
+        rawLines = fileContent(m);
         h = stringToHash("<m>");
-        md[h] = methodData(result[0],result[1],m);
+        md[h] = methodData(result[0],rawLines,result[1],m);
     }
     return md;
 }

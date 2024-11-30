@@ -1,16 +1,20 @@
+import { extractPathFromLoc } from "./transformations";
+
 class CloneLocation {
-  constructor(locFile, startLine, lastLine) {
-    this.locFile = locFile;
-    this.startLine = startLine;
-    this.lastLine = lastLine;
+  constructor(locFile, startLine, lastLine,rawLines) {
+    this.name = extractPathFromLoc(locFile);
+    this.startLine = startLine+1; // don't understand why :laughing-in-js:
+    this.lastLine = lastLine+1; // don't understand why :laughing-in-js:
+    this.rawLines = rawLines;
   }
+
 }
 
 class Clone {
   constructor(content, cloneLocs, window) {
     this.content = content;
-    this.cloneLocs = cloneLocs.map(
-      loc => new CloneLocation(loc.locFile, loc.startLine, loc.lastLine)
+    this.methods = cloneLocs.map(
+      loc => new CloneLocation(loc.locFile, loc.startLine, loc.lastLine,loc.rawLines)
     );
     this.window = window;
   }

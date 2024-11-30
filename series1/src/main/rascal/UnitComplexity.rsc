@@ -11,22 +11,18 @@ import Utils;
 public lrel[int, int] projectCyclomaticComplexityByMethod(project){
     list[loc] classes = getClasses(project);
     complexities = [];
-    logging = [];
     for(loc class <- classes){
         ast = createAstFromFile(class, true);
         
         visit(ast) {
             case m:\method(_,_,_,_,_) : {
-                logging += <m.name, calculateMethodComplexity(m)>;
                 complexities += <fileLoc(m@src), calculateMethodComplexity(m)>;
             }
             case c:\constructor(_,_,_,_) : {
-                logging += <c.name, calculateMethodComplexity(c)>;
                 complexities += <fileLoc(c@src), calculateMethodComplexity(c)>;
             }
         }
     }
-    println(logging);
     return complexities;
 }
 

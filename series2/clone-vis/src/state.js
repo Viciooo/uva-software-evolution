@@ -1,14 +1,33 @@
+// GlobalStateContext.js
 import React, { createContext, useContext, useState } from 'react';
 
 // Create a Context
 const GlobalStateContext = createContext();
 
-// Create a Provider Component
 export const GlobalStateProvider = ({ children }) => {
   const [cloneListData, setCloneListData] = useState([]);
+  const [selectedRowIndex, setSelectedRowIndex] = useState(null);
+  const [leftWindowLocIdx, setLeftWindowLocIdx] = useState(null); // Track left window selection
+  const [rightWindowLocIdx, setRightWindowLocIdx] = useState(null); // Track right window selection
+
+  // Function to clean the selections
+  const cleanSelection = () => {
+    setLeftWindowLocIdx(null);
+    setRightWindowLocIdx(null);
+  };
 
   return (
-    <GlobalStateContext.Provider value={{ cloneListData, setCloneListData }}>
+    <GlobalStateContext.Provider value={{ 
+      cloneListData, 
+      setCloneListData, 
+      selectedRowIndex, 
+      setSelectedRowIndex,
+      leftWindowLocIdx,
+      setLeftWindowLocIdx,
+      rightWindowLocIdx,
+      setRightWindowLocIdx,
+      cleanSelection, // Add the cleanSelection function to the context
+    }}>
       {children}
     </GlobalStateContext.Provider>
   );

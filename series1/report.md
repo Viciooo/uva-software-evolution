@@ -75,7 +75,9 @@
 
     The best we can do is propose values that in our proffesional experience were the tell signs and allow for their override.
 
-    ###### Citing Bob Martin:
+
+   #### Citing Bob Martin:
+
     > "This is not an assertion that I can justify. I can't produce any references to research that shows that very small functions are better."
 
 
@@ -127,7 +129,27 @@
    
    Unit testing metric could be enchanced with mutation testing. Code coverage only says, that the project may be tested enough - not if it is. While counting asserts gives some insights it is not informative enough.
 
+
+#### Coupling - new non-SIG metric:
+
+Apart from implementing the metrics suggested by SIG we implemented *Coupling metric* that describes the coupling between objects. High coupling can decreese *Changability* as change in one file will impact all the files that use it as a dependency.
+
+To calculate it we counted the number of dependencies by class and presented some statistics.
+
+We didn't provide the table for ranking, as we believe it is very much dependent on the framewoks used. It can however give insight into the project and high number of dependencies per class should be something to investigate.
+
+#### Scalibility of the solution:
+
+It is hard to determine it in the terms of O(n) complexity, as the complexity depends on the various factors such as:
+- Number of lines, 
+- number of classes, 
+- number of methods, 
+- internal complexity of Rascal methods
+
+We belive that for our needs a sufficient proof of the scalibility is a fact that hsqldb finishes within approximetly 10sec. We achieved that after a few iterations of the solution.
+
 #### Result of running on smallsql:
+```
 ---------------VOLUME---------------
 Total lines of code: 22210 KLOC
 Volume rank: ++
@@ -176,8 +198,10 @@ Median asserts per test method: 3.
 75% of test functions have <= 5 asserts
 ---------------UNIT TESTING END---------------
 ok
+```
 
 #### Results for hsqldb:
+```
 ---------------VOLUME---------------
 Total lines of code: 158171 KLOC
 Volume rank: +
@@ -226,7 +250,7 @@ Median asserts per test method: 0.
 75% of test functions have <= 4 asserts
 ---------------UNIT TESTING END---------------
 ok
-
+```
 #### Steps to recreate:
 ```
 import Main;

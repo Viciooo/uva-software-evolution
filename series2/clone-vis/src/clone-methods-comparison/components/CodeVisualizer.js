@@ -15,7 +15,7 @@ const CodeVisualizer = ({ code, highlightedLines }) => {
   };
 
   return (
-    <div style={{ width: '100%', height: '100%', overflow: 'auto', borderRadius: '8px', backgroundColor: '#2d2d2d' }}>
+    <div style={{ width: '100%', height: '70vh', overflow: 'scroll', borderRadius: '8px', backgroundColor: '#2d2d2d' }}>
       <SyntaxHighlighter
         language="java"
         style={atomOneDark}
@@ -24,7 +24,7 @@ const CodeVisualizer = ({ code, highlightedLines }) => {
         lineProps={(lineNumber) => getLineProps(lineNumber)}
         customStyle={{
           padding: '1rem',
-          fontSize: '1rem',
+          fontSize: '.5rem',
           height: '100%',
           margin: 0,
           borderRadius: '8px',

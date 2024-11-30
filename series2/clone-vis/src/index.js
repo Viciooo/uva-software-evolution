@@ -19,7 +19,7 @@ function App() {
   return (
     <React.StrictMode>
       <GlobalStateProvider>
-      <Box sx={{ width: '100%' }}>
+      <Box sx={{ width: '100%'}}>
         {/* Tabs for navigation */}
         <Tabs
           value={selectedTab}
@@ -30,7 +30,7 @@ function App() {
           scrollButtons="auto"
           aria-label="scrollable tabs example"
         >
-          <Tab label="Home" />
+          <Tab label="Home"/>
           <Tab label="Clone class investigator" />
           <Tab label="Tree View" />
         </Tabs>

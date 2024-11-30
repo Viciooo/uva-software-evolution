@@ -59,6 +59,6 @@ public void logMsgAndTime(str msg,real startTime){
 }
 
 public void writeClonesToJson(list[Clone] clones){
-    loc jsonFile = |project://series2/clones.json|;
+    loc jsonFile = |project://series2/clone-vis/public/clones.json|;
     writeJSON(jsonFile,clones);
 }
