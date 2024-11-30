@@ -128,6 +128,7 @@ public void findClones(loc project) {
             clonesLastIteration = clonesThisIteration; // naturally with the end of iteration this iteration becomes last iteration
         }
     }
+    clones = removeClonesStrictlyContainingInBiggerClone(clones,startTime);
     printStatistics(startTime,clones,biggestCloneClass,mostFrequentClone, methods);
     writeClonesToJson(clones);
     logMsgAndTime("\nFinished in:",startTime);
@@ -207,4 +208,47 @@ private list[PotentialClone] potentialClonesOfSize(list[str] lines, list[int] in
         result += [pc];
     }
     return result;
+}
+
+private list[Clone] removeClonesStrictlyContainingInBiggerClone(list[Clone] clones, real startDate) {
+    set[int] indicesToDelete = {};
+    
+    logMsgAndTime("starting search process over <size(clones)> clones...", startDate);
+    int cnt = 0;
+    
+    // Sort the list of clones by .window in descending order
+    list[Clone] sortedClones = sort(clones, bool(Clone c1, Clone c2){return c1.window > c2.window;});
+    
+    // Now, compare clones using the sorted list to reduce redundant comparisons
+    for (int i <- [0..size(sortedClones) - 1]) {
+        if(i in indicesToDelete) continue;
+        Clone cloneI = sortedClones[i];
+        if(cnt % 100 == 0){
+            logMsgAndTime("subsumption done for <i>/<size(sortedClones)> clones...", startDate);
+        }
+        for (int j <- [i + 1..size(sortedClones) - 1]) { // Start from i + 1, because j must have a smaller .window
+            if(j in indicesToDelete) continue;
+            Clone cloneJ = sortedClones[j];
+            
+            // If cloneJ's window is smaller than cloneI's, compare them
+            if (cloneI.window > cloneJ.window && size(cloneI.cloneLocs) == size(cloneJ.cloneLocs) && 
+                contains(cloneI.content, cloneJ.content)) {
+                indicesToDelete += {j};  // Mark index j for removal
+            }
+        }
+        cnt += 1;
+    }
+
+    logMsgAndTime("starting deletion process of <size(indicesToDelete)> clones...", startDate);
+    
+    // Delete the clones marked for removal
+    list[Clone] remainders = [];
+    set[int] indicesToKeep = toSet([0..size(sortedClones) - 1]) - indicesToDelete;  // Set of indices to keep
+    for (int i <- [0..size(sortedClones) - 1]) {
+        if(i in indicesToKeep){
+            remainders += [sortedClones[i]];
+        }
+    }
+
+    return remainders;
 }
