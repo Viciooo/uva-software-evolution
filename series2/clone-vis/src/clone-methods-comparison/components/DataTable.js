@@ -1,25 +1,37 @@
-import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
-import Paper from '@mui/material/Paper';
+import React, { useCallback } from 'react';
+import { AgGridReact } from 'ag-grid-react';
 import { useGlobalState } from '../../state';
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-alpine.css';  // You can change the theme here
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'lines', headerName: 'Lines', width: 130, sortable: true, description: 'Number of lines after normalization' },
-  { field: 'members', headerName: 'Members', width: 130, sortable: true, description: 'Number of clone class members' },
+  { headerName: 'ID', field: 'id', flex: 1, minWidth: 80, maxWidth: 120 },
+  { 
+    headerName: 'Lines', 
+    field: 'lines', 
+    flex: 2,  // Takes 2x more space than the 'ID' column
+    minWidth: 100, 
+    sortable: true, 
+    description: 'Number of lines after normalization' 
+  },
+  { 
+    headerName: 'Members', 
+    field: 'members', 
+    flex: 2,  // Takes the same space as 'lines' column
+    minWidth: 100, 
+    sortable: true, 
+    description: 'Number of clone class members' 
+  },
 ];
 
-const initialPaginationModel = { page: 0, pageSize: 10 };
-
 export default function DataTable() {
-  // Access the global state to get the cloneListData and setSelectedRowIndex
   const { cloneListData, setSelectedRowIndex, cleanSelection } = useGlobalState();
 
   // Build rows based on cloneListData, ensure cloneListData is defined and an array
-  const buildRows = () => {
+  const buildRows = useCallback(() => {
     if (!Array.isArray(cloneListData)) {
       console.error('Expected cloneListData to be an array, but it is:', cloneListData);
-      return []; // Return an empty array if cloneListData is not an array
+      return [];
     }
 
     let idx = 0;
@@ -28,30 +40,31 @@ export default function DataTable() {
       if (clone && clone.window && clone.methods) {
         rows.push({
           id: idx,
-          lines: clone.window, // You may need to extract the right field here
+          lines: clone.window,
           members: clone.methods.length,
         });
         idx += 1;
       }
     });
     return rows;
-  };
+  }, [cloneListData]);
 
-  const handleRowClick = (params) => {
+  const handleRowClick = useCallback((event) => {
     cleanSelection();
-    setSelectedRowIndex(params.id); // Record the clicked row index
-    console.log(`Row clicked: ${params.id}`);
-  };
+    setSelectedRowIndex(event.data.id); // Record the clicked row index
+    console.log(`Row clicked: ${event.data.id}`);
+  }, [setSelectedRowIndex, cleanSelection]);
 
   return (
-    <Paper sx={{ height: "100%", width: "100%" }}>
-      <DataGrid
-        rows={buildRows()} // Build the rows from global state data
-        columns={columns}
-        paginationModel={initialPaginationModel} // Set initial pagination model
-        sx={{ border: 1 }}
-        onRowClick={handleRowClick} // Add row click handler
+    <div className="ag-theme-alpine custom-grid" style={{ height: '100%', width: '100%' }}>
+      <AgGridReact
+        rowData={buildRows()} // Build the rows from global state data
+        columnDefs={columns}  // Column definitions
+        pagination={true} // Enable pagination
+        paginationPageSize={10} // Fixed to 10 rows per page
+        domLayout='autoHeight' // Automatically adjust the height of the grid based on its content
+        onRowClicked={handleRowClick} // Add row click handler
       />
-    </Paper>
+    </div>
   );
 }
