@@ -63,29 +63,12 @@ public void findClones(loc project) {
                 }
             }
 
-            if(size(domain(nextLine)) == 1 && size(noExtensionPossible) == 0){ // all can be extended, then this clone is redundant, because there is a bigger one
-                list[CloneLoc] newLocs = [];
-                str newLastLine;
-                for(l <- c.cloneLocs){
-                    locHash = stringToHash("<l.locFile>");
-                    md = methodData[locHash];
-                    idxInIndexes = indexOf(md.indexes,l.lastLine);
-                    newLastIdx = md.indexes[idxInIndexes+1]; // gets real line in normalised file
-                    newLastLine = md.lines[idxInIndexes+1];
-                    l.lastLine = newLastIdx;
-                    newLocs += [cloneLoc(l.locFile,md.rawLines,l.startLine,newLastIdx)];
-                }
-                clonesThisIteration += [clone(c.content+newLastLine,newLocs,c.window+1)];
-                continue;
+            map[str,list[CloneLoc]] extensionPossible = ();
+            for(str s <- domain(nextLine)){
+                if(size(nextLine[s]) == 1) noExtensionPossible += nextLine[s];
+                else extensionPossible[s] = nextLine[s];
             }
-            if(size(domain(nextLine)) == 0){ // none can be extended - we have to save it to final list - this is a final clone for sure
-                clones += [c];
-                biggestCloneClass = c;
-                if(size(c.cloneLocs) > size(mostFrequentClone.cloneLocs)){
-                    mostFrequentClone = c;
-                }
-                continue;
-            }
+
             if(size(noExtensionPossible) > 1){ // if at least 2 were noExtensionPossible then we have a final clone to save
                 clones += [clone(c.content,noExtensionPossible,c.window)];
                 biggestCloneClass = c;
@@ -93,31 +76,17 @@ public void findClones(loc project) {
                     mostFrequentClone = c;
                 }
             }
-            list[CloneLoc] finalLocs = [];
-
-            for(str s <- domain(nextLine)){
-                list[CloneLoc] thoseClonLocs = nextLine[s];
-
-                if(size(nextLine[s]) > 1){ // if at least 2 locations have the same extension then we have a next clone
-                    list[CloneLoc] newLocs = [];
-                    for(l <- thoseClonLocs){
+            for(str s <- domain(extensionPossible)){
+                list[CloneLoc] cloneLocsFamily = extensionPossible[s];
+                list[CloneLoc] newExtendedLocs = [];
+                for(l <- cloneLocsFamily){
                         locHash = stringToHash("<l.locFile>");
                         md = methodData[locHash];
                         idxInIndexes = indexOf(md.indexes,l.lastLine);
                         newLastIdx = md.indexes[idxInIndexes+1]; // gets real line in normalised file
-                        newLocs += [cloneLoc(l.locFile,md.rawLines,l.startLine,newLastIdx)];
-                    }
-                    clonesThisIteration += [clone(c.content+s,newLocs,c.window+1)];
-                }else{ // if clone locs have differing extensions, then there will be no bigger clone with them
-                    finalLocs += thoseClonLocs;
+                        newExtendedLocs += [cloneLoc(l.locFile,md.rawLines,l.startLine,newLastIdx)];
                 }
-            }
-            if(size(finalLocs) > 1){
-                clones += [clone(c.content,finalLocs,c.window)];
-                biggestCloneClass = c;
-                if(size(c.cloneLocs) > size(mostFrequentClone.cloneLocs)){
-                    mostFrequentClone = c;
-                }
+                clonesThisIteration += [clone(c.content+s,newExtendedLocs,c.window+1)];
             }
         }
 
@@ -128,7 +97,7 @@ public void findClones(loc project) {
             clonesLastIteration = clonesThisIteration; // naturally with the end of iteration this iteration becomes last iteration
         }
     }
-    clones = removeClonesStrictlyContainingInBiggerClone(clones,startTime);
+    clones = removeSubsumption(clones,startTime);
     printStatistics(startTime,clones,biggestCloneClass,mostFrequentClone, methods);
     writeClonesToJson(clones);
     logMsgAndTime("\nFinished in:",startTime);
@@ -210,7 +179,7 @@ private list[PotentialClone] potentialClonesOfSize(list[str] lines, list[int] in
     return result;
 }
 
-private list[Clone] removeClonesStrictlyContainingInBiggerClone(list[Clone] clones, real startDate) {
+private list[Clone] removeSubsumption(list[Clone] clones, real startDate) {
     set[int] indicesToDelete = {};
     
     logMsgAndTime("starting search process over <size(clones)> clones...", startDate);

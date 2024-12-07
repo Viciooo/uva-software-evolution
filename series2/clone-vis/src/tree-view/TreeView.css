@@ -1,0 +1,17 @@
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.node {
+  transition: fill 0.2s;
+}
+
+.node:hover {
+  fill: #ff7f0e;
+}

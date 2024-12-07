@@ -1,21 +1,150 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Graph } from 'react-d3-graph';
-
-const data = {
-  nodes: [{ id: 'Node 1' }, { id: 'Node 2' }, { id: 'Node 3' }],
-  links: [
-    { source: 'Node 1', target: 'Node 2' },
-    { source: 'Node 1', target: 'Node 3' },
-  ],
-};
+import './TreeView.css';
+import { useGlobalState } from '../state';
+import { toNodesAndLinks } from '../transformations';
 
 const config = {
   nodeHighlightBehavior: true,
-  node: { color: 'lightblue', size: 300 },
-  link: { highlightColor: 'orange' },
-  collapsible: true,
+  node: {
+    color: 'lightblue',
+    highlightStrokeColor: 'red',
+    fontSize: 12,
+  },
+  link: {
+    highlightColor: 'orange',
+  },
+  // collapsible: true,
+  directed: true,
+  height: window.innerHeight,
+  width: window.innerWidth,
 };
 
 export const TreeView = () => {
-  return <Graph id="graph" data={data} config={config} />;
+  const [tooltip, setTooltip] = useState({ visible: false, content: '', x: 0, y: 0 });
+  const [depth, setDepth] = useState(3);  // Depth state to track the current depth value
+  const graphRef = useRef(null);
+  const graphInstanceRef = useRef(null); // Ref to store the graph instance
+
+  const { cloneListData } = useGlobalState(); // Access global state using the custom hook
+
+  const data = toNodesAndLinks(cloneListData, depth);  // Update the graph data based on the current depth
+
+  // Handle node hover for tooltip
+  const handleNodeHover = (nodeId, node) => {
+    if (graphRef.current && node) {
+      const boundingRect = graphRef.current.getBoundingClientRect();
+      const nodePosition = { x: boundingRect.left + node.x, y: boundingRect.top + node.y };
+
+      setTooltip({
+        visible: true,
+        content: node.tooltip || nodeId,
+        x: nodePosition.x + 10,
+        y: nodePosition.y - 10,
+      });
+    }
+  };
+
+  const handleNodeOut = () => {
+    setTooltip({ visible: false, content: '', x: 0, y: 0 });
+  };
+
+  // Custom node configuration based on size
+  const customConfig = {
+    ...config,
+    node: {
+      ...config.node,
+      size: (node) => node.size || 600, // Use node size from data or default to 600
+    },
+  };
+
+  // Function to handle depth change from the dropdown
+  const handleDepthChange = (event) => {
+    setDepth(Number(event.target.value));  // Update the depth state and refresh graph
+  };
+
+  return (
+    <div
+      style={{
+        width: '90vw', // Full viewport width
+        height: '80vh', // Full viewport height
+        display: 'flex',
+        alignItems: 'center',      // Center the content vertically
+        padding: '10px',           // Padding inside the div
+        boxSizing: 'border-box',   // Ensure padding doesn't affect width/height
+        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)', // Black shadow for 3D effect
+        flexDirection: 'column',   // Align children (dropdown and graph) vertically
+      }}
+    >
+      {/* Depth Selection Dropdown */}
+      <div
+        style={{
+          marginBottom: '10px',
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+        }}
+      >
+        <select
+          value={depth}
+          onChange={handleDepthChange}
+          style={{
+            padding: '5px 10px',
+            fontSize: '14px',
+            borderRadius: '4px',
+            border: '1px solid #ccc',
+            boxShadow: '0 0 5px rgba(0, 0, 0, 0.2)',
+            cursor: 'pointer',
+          }}
+        >
+          {Array.from({ length: 10 }, (_, i) => i + 1).map((d) => (
+            <option key={d} value={d}>
+              Depth {d}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Graph Container */}
+      <div
+        ref={graphRef}
+        style={{
+          position: 'relative',
+          width: '100%',   // Subtract 20px to account for 10px margin on each side
+          height: '100%',  // Subtract 20px to account for 10px margin on top and bottom
+        }}
+      >
+        {/* Tooltip */}
+        <div
+          className="tooltip"
+          style={{
+            position: 'absolute',
+            visibility: tooltip.visible ? 'visible' : 'hidden',
+            left: `${tooltip.x}px`,
+            top: `${tooltip.y}px`,
+            background: 'rgba(0, 0, 0, 0.75)',
+            color: '#fff',
+            padding: '8px',
+            borderRadius: '4px',
+            fontSize: '12px',
+            pointerEvents: 'none',
+            transform: 'translate(-50%, -100%)',
+            whiteSpace: 'pre-line', // Important to handle \n as line breaks
+          }}
+        >
+          {tooltip.content}
+        </div>
+
+        {/* Graph */}
+        <Graph
+          id="graph"
+          data={data}
+          config={customConfig} // Use custom config with dynamic node sizes
+          onMouseOverNode={(nodeId, node) => handleNodeHover(nodeId, node)}
+          onMouseOutNode={handleNodeOut}
+          ref={graphInstanceRef} // Store the graph instance to trigger onClickNode
+        />
+      </div>
+    </div>
+  );
 };

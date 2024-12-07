@@ -23,8 +23,9 @@ const HorizontalPanel = ({ items }) => {
   };
 
   const truncateName = (name) => {
+    console.log('name',name);
     const visibleLength = 20;
-    if (name.length > visibleLength) {
+    if (name && name.length > visibleLength) {
       return `...${name.slice(-visibleLength)}`;
     }
     return name;

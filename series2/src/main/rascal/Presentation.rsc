@@ -28,27 +28,35 @@ public void printStatistics(real startTime,list[Clone] clones, Clone biggestClon
     appendToFile(resultFile, "numberOfCloneClasses: <numberOfCloneClasses>\n");
 
     int numberOfClones = sum([size(c.cloneLocs) | c <- clones]);
-    appendToFile(resultFile, "Total Number Of Clones: <numberOfClones>\n");
+    appendToFile(resultFile, "Total Number Of Clones: <numberOfClones>\n\n");
 
     appendToFile(resultFile, "Biggest Clon In Lines:\n");
-    printClone(biggestCloneClass);
+    printClone(biggestCloneClass,true);
 
     appendToFile(resultFile, "Biggest Clon In Members:\n");
-    printClone(mostFrequentClone);
+    printClone(mostFrequentClone,false);
+
+    appendToFile(resultFile,"A few examples:\n");
+    for(c <-clones[0..min(3,size(clones))]){
+        printClone(c,false);
+    }
 }
 
-public void printClone(Clone c){
+public void printClone(Clone c, bool printLocs){
     appendToFile(resultFile, "Content:\n<c.content>\n");
     appendToFile(resultFile, "Number of lines: <c.window>\n");
     appendToFile(resultFile, "Number of members: <size(c.cloneLocs)>\n");
-    appendToFile(resultFile, "Locations with clones:\n");
     int cnt = 0;
-    for(cl <- c.cloneLocs){
+    if(printLocs){
+       appendToFile(resultFile, "Locations with clones:\n");
+        for(cl <- c.cloneLocs){
         appendToFile(resultFile, "<cnt>:\n");
         appendToFile(resultFile, "   <cl.locFile>\n");
-        appendToFile(resultFile, "   Method line: <cl.startLine> to <cl.lastLine>\n\n");
+        appendToFile(resultFile, "   Method line: <cl.startLine> to <cl.lastLine>\n");
         cnt += 1;
+        }
     }
+    appendToFile(resultFile, "\n");
 }
 
 public void logMsgAndTime(str msg,real startTime){

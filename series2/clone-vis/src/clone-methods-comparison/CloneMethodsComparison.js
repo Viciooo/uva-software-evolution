@@ -1,7 +1,7 @@
 import DataTable from './components/DataTable';
 import HorizontalPanel from './components/HorizontalPanel';
 import CodeVisualizer from './components/CodeVisualizer';
-import { getCloneList } from './models';
+import { getCloneList } from '.././models';
 import React, { useEffect, useState } from 'react';
 import { useGlobalState } from '../state';
 
