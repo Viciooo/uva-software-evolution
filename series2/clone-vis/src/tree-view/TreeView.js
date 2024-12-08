@@ -7,14 +7,14 @@ import { toNodesAndLinks } from '../transformations';
 const config = {
   nodeHighlightBehavior: true,
   node: {
-    color: 'lightblue',
+    color: 'darkblue',
     highlightStrokeColor: 'red',
     fontSize: 0,  // This makes the font invisible
     labelProperty: 'id',  // Keep the ID as the label but make it invisible
   },
-  link: {
-    highlightColor: 'orange',
-    linkLength: 150, // Controls the default length of the link
+    d3: {
+        gravity: -7000, // Increase repulsion (negative values repel nodes more strongly)
+        linkStrength: 0.001, // Adjust link elasticity
   },
   directed: true,
   height: window.innerHeight,
@@ -51,7 +51,7 @@ export const TreeView = () => {
     ...config,
     node: {
       ...config.node,
-      size: (node) => node.size || 600, // Use node size from data or default to 600
+      size: (node) => node.size
     },
   };
 
@@ -68,8 +68,6 @@ export const TreeView = () => {
         display: 'flex',
         alignItems: 'center',      // Center the content vertically
         padding: '10px',           // Padding inside the div
-        boxSizing: 'border-box',   // Ensure padding doesn't affect width/height
-        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)', // Black shadow for 3D effect
         flexDirection: 'column',   // Align children (dropdown and graph) vertically
       }}
     >
@@ -88,9 +86,6 @@ export const TreeView = () => {
           style={{
             padding: '5px 10px',
             fontSize: '14px',
-            borderRadius: '4px',
-            border: '1px solid #ccc',
-            boxShadow: '0 0 5px rgba(0, 0, 0, 0.2)',
             cursor: 'pointer',
           }}
         >

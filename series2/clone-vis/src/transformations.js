@@ -55,7 +55,7 @@ export function toNodesAndLinks(clones, depth) {
 
     const nodes = Array.from(nodesMap.entries()).map(([key, value]) => ({
         id: key,
-        size: value,
+        size: value*10,
         tooltip: `lines: ${value}\npath: ${key}`,
     }));
 
