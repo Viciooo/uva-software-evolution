@@ -6,6 +6,7 @@ import { Tab, Tabs, Box } from '@material-ui/core';
 import { CloneMethodComparison } from './clone-methods-comparison/CloneMethodsComparison';
 import { TreeView } from './tree-view/TreeView';
 import { GlobalStateProvider } from './state';
+import Home from "./home/Home";
 
 // React 16: Use ReactDOM.render instead of createRoot
 function App() {
@@ -29,17 +30,22 @@ function App() {
             scrollButtons="auto"
             aria-label="scrollable tabs example"
           >
+            <Tab label="Home" />
             <Tab label="Clone class investigator" />
             <Tab label="Tree View" />
           </Tabs>
 
-          {/* Conditional rendering based on selected tab */}
           {selectedTab === 0 && (
+            <Box sx={{ p: 3 }}>
+              < Home/>
+            </Box>
+          )}
+          {selectedTab === 1 && (
             <Box sx={{ p: 3 }}>
               <CloneMethodComparison />
             </Box>
           )}
-          {selectedTab === 1 && (
+          {selectedTab === 2 && (
             <Box sx={{ p: 3 }}>
               <TreeView />
             </Box>

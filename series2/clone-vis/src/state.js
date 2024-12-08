@@ -1,4 +1,3 @@
-// GlobalStateContext.js
 import React, { createContext, useContext, useState } from 'react';
 
 // Create a Context
@@ -9,6 +8,7 @@ export const GlobalStateProvider = ({ children }) => {
   const [selectedRowIndex, setSelectedRowIndex] = useState(null);
   const [leftWindowLocIdx, setLeftWindowLocIdx] = useState(null); // Track left window selection
   const [rightWindowLocIdx, setRightWindowLocIdx] = useState(null); // Track right window selection
+  const [selectedFile, setSelectedFile] = useState(null); // Store the selected file
 
   // Function to clean the selections
   const cleanSelection = () => {
@@ -17,16 +17,18 @@ export const GlobalStateProvider = ({ children }) => {
   };
 
   return (
-    <GlobalStateContext.Provider value={{ 
-      cloneListData, 
-      setCloneListData, 
-      selectedRowIndex, 
+    <GlobalStateContext.Provider value={{
+      cloneListData,
+      setCloneListData,
+      selectedRowIndex,
       setSelectedRowIndex,
       leftWindowLocIdx,
       setLeftWindowLocIdx,
       rightWindowLocIdx,
       setRightWindowLocIdx,
       cleanSelection, // Add the cleanSelection function to the context
+      selectedFile,  // Add selectedFile to the context
+      setSelectedFile, // Add setter for selectedFile to the context
     }}>
       {children}
     </GlobalStateContext.Provider>

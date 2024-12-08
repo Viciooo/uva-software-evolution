@@ -1,13 +1,11 @@
 import DataTable from './components/DataTable';
 import HorizontalPanel from './components/HorizontalPanel';
 import CodeVisualizer from './components/CodeVisualizer';
-import { getCloneList } from '.././models';
 import React, { useEffect, useState } from 'react';
 import { useGlobalState } from '../state';
 
 export const CloneMethodComparison = () => {
   const {
-    setCloneListData,
     cloneListData,
     selectedRowIndex,
     leftWindowLocIdx,
@@ -20,17 +18,6 @@ export const CloneMethodComparison = () => {
   const [rightWindowHighlightedLines, setRightWindowHighlightedLines] = useState([]);
   const [isLoadingLeftCode, setIsLoadingLeftCode] = useState(false);
   const [isLoadingRightCode, setIsLoadingRightCode] = useState(false);
-
-  // Load clone list data on component mount
-  useEffect(() => {
-    getCloneList()
-      .then(clones => {
-        setCloneListData(clones); // Populate global state with fetched clones
-      })
-      .catch(error => {
-        console.error('Failed to fetch clone list:', error);
-      });
-  }, [setCloneListData]);
 
   // Effect to load left window Java code
   useEffect(() => {

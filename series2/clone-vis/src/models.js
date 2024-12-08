@@ -10,7 +10,7 @@ class CloneLocation {
 
 }
 
-class Clone {
+export class Clone {
   constructor(content, cloneLocs, window) {
     this.content = content;
     this.methods = cloneLocs.map(
@@ -20,7 +20,6 @@ class Clone {
   }
 
   static createFromJSON(jsonData) {
-    // Check if jsonData is an array before calling map
     if (!Array.isArray(jsonData)) {
       throw new Error('Expected an array of clones');
     }
@@ -31,13 +30,4 @@ class Clone {
       item.window
     ));
   }
-}
-
-export function getCloneList() {
-  return fetch('clones.json')
-    .then(response => response.json())  // First, resolve the JSON data
-    .then(jsonData => Clone.createFromJSON(jsonData))  // Now pass the data to createFromJSON
-    .catch(error => {
-      console.error("Error loading clones:", error);
-    });
 }
