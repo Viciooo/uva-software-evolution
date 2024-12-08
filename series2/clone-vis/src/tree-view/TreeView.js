@@ -9,12 +9,13 @@ const config = {
   node: {
     color: 'lightblue',
     highlightStrokeColor: 'red',
-    fontSize: 12,
+    fontSize: 0,  // This makes the font invisible
+    labelProperty: 'id',  // Keep the ID as the label but make it invisible
   },
   link: {
     highlightColor: 'orange',
+    linkLength: 150, // Controls the default length of the link
   },
-  // collapsible: true,
   directed: true,
   height: window.innerHeight,
   width: window.innerWidth,
@@ -32,17 +33,13 @@ export const TreeView = () => {
 
   // Handle node hover for tooltip
   const handleNodeHover = (nodeId, node) => {
-    if (graphRef.current && node) {
-      const boundingRect = graphRef.current.getBoundingClientRect();
-      const nodePosition = { x: boundingRect.left + node.x, y: boundingRect.top + node.y };
-
-      setTooltip({
-        visible: true,
-        content: node.tooltip || nodeId,
-        x: nodePosition.x + 10,
-        y: nodePosition.y - 10,
-      });
-    }
+    // Set the tooltip to be in the center of the screen
+    setTooltip({
+      visible: true,
+      content: node.tooltip || nodeId,
+      x: window.innerWidth / 2,  // Position at the horizontal center of the screen
+      y: window.innerHeight / 2, // Position at the vertical center of the screen
+    });
   };
 
   const handleNodeOut = () => {
@@ -110,8 +107,8 @@ export const TreeView = () => {
         ref={graphRef}
         style={{
           position: 'relative',
-          width: '100%',   // Subtract 20px to account for 10px margin on each side
-          height: '100%',  // Subtract 20px to account for 10px margin on top and bottom
+          width: '100%',
+          height: '100%',
         }}
       >
         {/* Tooltip */}
@@ -128,7 +125,7 @@ export const TreeView = () => {
             borderRadius: '4px',
             fontSize: '12px',
             pointerEvents: 'none',
-            transform: 'translate(-50%, -100%)',
+            transform: 'translate(-50%, -100%)', // Center the tooltip based on the x and y positions
             whiteSpace: 'pre-line', // Important to handle \n as line breaks
           }}
         >

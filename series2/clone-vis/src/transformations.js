@@ -1,5 +1,8 @@
 export function extractPathFromLoc(loc) {
-    // Step 1: Remove everything before and including "java+method:///"
+    if (!loc.includes("java+method:///")) {
+        return loc;
+    }
+
     const methodPart = loc.split("java+method:///")[1];
     if (!methodPart) return null; // Ensure the split worked
 
@@ -21,40 +24,40 @@ export function extractPathFromLoc(loc) {
 export function toNodesAndLinks(clones, depth) {
     var nodesMap = new Map();
     var links = new Set();
-  
+
     var currDepth = 0;
-    
+
     clones.forEach(c => {
-      c.methods.forEach(m => {
-        if(!m.name){
-            return
-        }
-        const parts = m.name.split('/');
-        currDepth = 0;
-        
-        while (currDepth < Math.min(depth, parts.length)) {
-          const path = parts.slice(0, currDepth).join('/');
-  
-          // Update nodesMap with the path as the key and window as the value (clonedLines)
-          if (nodesMap.has(path)) {
-            nodesMap.set(path, nodesMap.get(path) + c.window); // Assuming window is the value to add
-          } else {
-            nodesMap.set(path, c.window); // Initialize with window value
-            if (currDepth !== 0) {
-              const previousPath = parts.slice(0, currDepth - 1).join('/');
-              links.add({ source: previousPath, target: path });
+        c.methods.forEach(m => {
+            if (!m.name) {
+                return
             }
-          }
-          currDepth += 1;
-        }
-      });
+            const parts = m.name.split('/');
+            currDepth = 0;
+
+            while (currDepth < Math.min(depth, parts.length)) {
+                const path = parts.slice(0, currDepth).join('/');
+
+                // Update nodesMap with the path as the key and window as the value (clonedLines)
+                if (nodesMap.has(path)) {
+                    nodesMap.set(path, nodesMap.get(path) + c.window); // Assuming window is the value to add
+                } else {
+                    nodesMap.set(path, c.window); // Initialize with window value
+                    if (currDepth !== 0) {
+                        const previousPath = parts.slice(0, currDepth - 1).join('/');
+                        links.add({source: previousPath, target: path});
+                    }
+                }
+                currDepth += 1;
+            }
+        });
     });
-  
+
     const nodes = Array.from(nodesMap.entries()).map(([key, value]) => ({
-      id: key,
-      size: value,
-      tooltip: `lines: ${value}`
+        id: key,
+        size: value,
+        tooltip: `lines: ${value}\npath: ${key}`,
     }));
-  
-    return { nodes, links: Array.from(links) }; // Return both nodes and links as arrays
-  }
+
+    return {nodes, links: Array.from(links)}; // Return both nodes and links as arrays
+}
