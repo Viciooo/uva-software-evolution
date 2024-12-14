@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
 
-// Create a Context
 const GlobalStateContext = createContext();
 
 export const GlobalStateProvider = ({ children }) => {
@@ -26,16 +25,15 @@ export const GlobalStateProvider = ({ children }) => {
       setLeftWindowLocIdx,
       rightWindowLocIdx,
       setRightWindowLocIdx,
-      cleanSelection, // Add the cleanSelection function to the context
-      selectedFile,  // Add selectedFile to the context
-      setSelectedFile, // Add setter for selectedFile to the context
+      cleanSelection,
+      selectedFile,
+      setSelectedFile,
     }}>
       {children}
     </GlobalStateContext.Provider>
   );
 };
 
-// Create a Custom Hook to Access the Global State
 export const useGlobalState = () => {
   const context = useContext(GlobalStateContext);
   if (!context) {

@@ -14,20 +14,20 @@ import util::Benchmark;
 import Presentation;
 import DataTypes;
 
-public void findClones(loc project) {
+public void findClones(loc project,int smallestClone, list[str] excludedPaths) {
     real startTime = realTime()/1000.0;
 
-    list[loc] methods = getMethods(project); // gets all method location within the project directory
-    int window = 3; // starting window size. We use it for detecting clones using moving window
+    list[loc] locations = getRelevantLocations(project,excludedPaths);
+    int window = smallestClone; // starting window size. We use it for detecting clones using moving window
     list[Clone] clones = []; // result list of detected clones.
 
-    map[int,MethodData] methodData = getMethodData(methods); // hashed loc strings are the keys, values are what we need to find clones
+    map[int,LocationData] locationData = getLocationData(locations); // hashed loc strings are the keys, values are what we need to find clones
 
-    result = getInitialClones(methodData,window); // initial clones are created using unique process, later we just try to build on top of found clones.
+    result = firstIteration(locationData,window); // initial clones are created using unique process, later we just try to build on top of found clones.
     // We do it by trying to include next line. We take clone of size X and try to make it of size X+1 by appending the next line and checking if that is a clone.
 
     list[Clone] clonesLastIteration = result[0]; // for each iteration we will need last iteration to build on top of, via clone extension
-    methodData = result[1];
+    locationData = result[1];
     Clone biggestCloneClass = result[2]; // biggestCloneClass is a clone class with the most lines
     Clone mostFrequentClone = result[3]; // mostFrequentClone is a clone that is repeated te most
 
@@ -47,10 +47,10 @@ public void findClones(loc project) {
             map[str,list[CloneLoc]] nextLine = (); // map stores nextLines of a clone for each group of clone locations
             list[CloneLoc] noExtensionPossible = []; // clone locs with no possible extensions
             for(CloneLoc cl <- c.cloneLocs){
-                int locHash = stringToHash("<cl.locFile>"); // we create loc hash to get information about normalised method
-                MethodData md = methodData[locHash];
-                int idxInIndexes = indexOf(md.indexes,cl.lastLine); // gets index of line in normalised method of clone location's last line 
-                if(cl.lastLine == md.indexes[-1]){ // if last line of clone is last line of method - extension not possible
+                int locHash = stringToHash("<cl.locFile>"); // we create loc hash to get information about normalised location
+                LocationData md = locationData[locHash];
+                int idxInIndexes = indexOf(md.indexes,cl.lastLine); // gets index of line in normalised location of clone location's last line
+                if(cl.lastLine == md.indexes[-1]){ // if last line of clone is last line of location - extension not possible
                     noExtensionPossible += [cl];
                     continue;
                 }
@@ -70,7 +70,7 @@ public void findClones(loc project) {
             }
 
             if(size(noExtensionPossible) > 1){ // if at least 2 were noExtensionPossible then we have a final clone to save
-                clones += [clone(c.content,noExtensionPossible,c.window)];
+                clones += [clone(c.content,noExtensionPossible,c.size)];
                 biggestCloneClass = c;
                 if(size(c.cloneLocs) > size(mostFrequentClone.cloneLocs)){
                     mostFrequentClone = c;
@@ -81,12 +81,12 @@ public void findClones(loc project) {
                 list[CloneLoc] newExtendedLocs = [];
                 for(l <- cloneLocsFamily){
                         locHash = stringToHash("<l.locFile>");
-                        md = methodData[locHash];
+                        md = locationData[locHash];
                         idxInIndexes = indexOf(md.indexes,l.lastLine);
                         newLastIdx = md.indexes[idxInIndexes+1]; // gets real line in normalised file
                         newExtendedLocs += [cloneLoc(l.locFile,md.rawLines,l.startLine,newLastIdx)];
                 }
-                clonesThisIteration += [clone(c.content+s,newExtendedLocs,c.window+1)];
+                clonesThisIteration += [clone(c.content+s,newExtendedLocs,c.size+1)];
             }
         }
 
@@ -98,22 +98,22 @@ public void findClones(loc project) {
         }
     }
     clones = removeSubsumption(clones,startTime);
-    printStatistics(startTime,clones,biggestCloneClass,mostFrequentClone, methods);
+    printStatistics(startTime,clones,biggestCloneClass,mostFrequentClone, locations);
     writeClonesToJson(clones);
     logMsgAndTime("\nFinished in:",startTime);
 }
 
-private tuple[list[Clone],map[int,MethodData],Clone,Clone] getInitialClones(map[int,MethodData] md, int window){
+private tuple[list[Clone],map[int,LocationData],Clone,Clone] firstIteration(map[int,LocationData] locData, int window){
     Clone biggestCloneClass = clone("",[],0);
     Clone mostFrequentClone = clone("",[],0);
-    set[int] usedMethods = {};
+    set[int] usedLocations = {};
     map[int,Clone] clones = ();
 
-    for(int methodHash <- domain(md)) {
-        list[str] lines = md[methodHash].lines;
-        list[int] indexes = md[methodHash].indexes;
-        loc method = md[methodHash].method;
-        str rawLines =  md[methodHash].rawLines;
+    for(int locationHash <- domain(locData)) {
+        list[str] lines = locData[locationHash].lines;
+        list[int] indexes = locData[locationHash].indexes;
+        loc location = locData[locationHash].location;
+        str rawLines =  locData[locationHash].rawLines;
 
         list[PotentialClone] allSubsets = potentialClonesOfSize(lines,indexes,window);
 
@@ -123,17 +123,17 @@ private tuple[list[Clone],map[int,MethodData],Clone,Clone] getInitialClones(map[
             if (h in clones) {
                 clones[h] = clone(
                     pc.content,
-                    clones[h].cloneLocs + [cloneLoc(method,rawLines,pc.startLine,pc.lastLine)],
+                    clones[h].cloneLocs + [cloneLoc(location,rawLines,pc.startLine,pc.lastLine)],
                     window);
             } else {
                 clones[h] = clone(
                     pc.content,
-                    [cloneLoc(method,rawLines,pc.startLine,pc.lastLine)],
+                    [cloneLoc(location,rawLines,pc.startLine,pc.lastLine)],
                     window);
             }
 
             if(size(clones[h].cloneLocs) > 1){
-                usedMethods += {methodHash};
+                usedLocations += {locationHash};
                 biggestCloneClass = clones[h];
             }
 
@@ -144,7 +144,7 @@ private tuple[list[Clone],map[int,MethodData],Clone,Clone] getInitialClones(map[
     }
     clones = removeClonesOfSize1(clones);
     cloneList = [clones[h] | h <- domain(clones)];
-    return <cloneList,md,biggestCloneClass,mostFrequentClone>;
+    return <cloneList,locData,biggestCloneClass,mostFrequentClone>;
 }
 
 private map[int,Clone] removeClonesOfSize1(map[int,Clone] clones){
@@ -185,8 +185,8 @@ private list[Clone] removeSubsumption(list[Clone] clones, real startDate) {
     logMsgAndTime("starting search process over <size(clones)> clones...", startDate);
     int cnt = 0;
     
-    // Sort the list of clones by .window in descending order
-    list[Clone] sortedClones = sort(clones, bool(Clone c1, Clone c2){return c1.window > c2.window;});
+    // Sort the list of clones by .size in descending order
+    list[Clone] sortedClones = sort(clones, bool(Clone c1, Clone c2){return c1.size > c2.size;});
     
     // Now, compare clones using the sorted list to reduce redundant comparisons
     for (int i <- [0..size(sortedClones) - 1]) {
@@ -195,12 +195,12 @@ private list[Clone] removeSubsumption(list[Clone] clones, real startDate) {
         if(cnt % 100 == 0){
             logMsgAndTime("subsumption done for <i>/<size(sortedClones)> clones...", startDate);
         }
-        for (int j <- [i + 1..size(sortedClones) - 1]) { // Start from i + 1, because j must have a smaller .window
+        for (int j <- [i + 1..size(sortedClones) - 1]) { // Start from i + 1, because j must have a smaller .size
             if(j in indicesToDelete) continue;
             Clone cloneJ = sortedClones[j];
             
             // If cloneJ's window is smaller than cloneI's, compare them
-            if (cloneI.window > cloneJ.window && size(cloneI.cloneLocs) == size(cloneJ.cloneLocs) && 
+            if (cloneI.size > cloneJ.size && size(cloneI.cloneLocs) == size(cloneJ.cloneLocs) && 
                 contains(cloneI.content, cloneJ.content)) {
                 indicesToDelete += {j};  // Mark index j for removal
             }

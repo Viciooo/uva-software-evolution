@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define file names
-CLONES_FILE="./clone-vis/public/clones.json"
+CLONES_FILE="./clones.json"
 RESULT_FILE="result.txt"
 
 # Function to remove and recreate a file

@@ -16,11 +16,11 @@ import DataTypes;
 
 loc resultFile = |project://series2/result.txt|;
 
-public void printStatistics(real startTime,list[Clone] clones, Clone biggestCloneClass,Clone mostFrequentClone, list[loc] methods){
+public void printStatistics(real startTime,list[Clone] clones, Clone biggestCloneClass,Clone mostFrequentClone, list[loc] locations){
     logMsgAndTime("Preparing statistics...",startTime);
 
-    real duplicatedLines = sum([c.window*size(c.cloneLocs) | c <- clones])*1.0;
-    real totalLOC = sum([fileLoc(m)*1.0 | m <- methods]);
+    real duplicatedLines = sum([c.size*size(c.cloneLocs) | c <- clones])*1.0;
+    real totalLOC = sum([locNormalizedSize(l)*1.0 | l <- locations]);
     real percentDuplicatedLines = duplicatedLines*100.0 / totalLOC;
     appendToFile(resultFile, "Percent Duplicated Lines: <percentDuplicatedLines>%\n");
 
@@ -44,7 +44,7 @@ public void printStatistics(real startTime,list[Clone] clones, Clone biggestClon
 
 public void printClone(Clone c, bool printLocs){
     appendToFile(resultFile, "Content:\n<c.content>\n");
-    appendToFile(resultFile, "Number of lines: <c.window>\n");
+    appendToFile(resultFile, "Number of lines: <c.size>\n");
     appendToFile(resultFile, "Number of members: <size(c.cloneLocs)>\n");
     int cnt = 0;
     if(printLocs){
@@ -52,7 +52,7 @@ public void printClone(Clone c, bool printLocs){
         for(cl <- c.cloneLocs){
         appendToFile(resultFile, "<cnt>:\n");
         appendToFile(resultFile, "   <cl.locFile>\n");
-        appendToFile(resultFile, "   Method line: <cl.startLine> to <cl.lastLine>\n");
+        appendToFile(resultFile, "   Location line: <cl.startLine> to <cl.lastLine>\n");
         cnt += 1;
         }
     }

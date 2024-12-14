@@ -1,27 +1,24 @@
 export function extractPathFromLoc(loc) {
-    if (!loc.includes("java+method:///")) {
+    // Remove the prefix and split at the "|"
+    if (!loc.includes("/src/")){
         return loc;
     }
+    const withoutPrefix = loc.substring(loc.indexOf("/src/") + 5);
+    const parts = withoutPrefix.split("|");
 
-    const methodPart = loc.split("java+method:///")[1];
-    if (!methodPart) return null; // Ensure the split worked
+    // Extract the file path (first part) and the tuple (last part)
+    const filePath = parts[0];
+    const tuple = parts[1];
 
-    // Step 3: Take everything until the '('
-    const beforeParenthesis = methodPart.split('(')[0];
+    // Extract content after the tuple's first two values
+    const tupleParts = tuple.split(",");
+    const trimmedTuple = tupleParts.slice(2).join(",");
 
-    // Step 4: Extract the portion before the last '/' and after it
-    const lastSlashIndex = beforeParenthesis.lastIndexOf('/');
-    if (lastSlashIndex === -1) return null; // No '/' found
-    const classPart = beforeParenthesis.slice(0, lastSlashIndex);
-    const methodPartFinal = beforeParenthesis.slice(lastSlashIndex + 1);
-
-    // Step 5: Combine the parts with ".java"
-    const result = `${classPart}.java/${methodPartFinal}`;
-
-    return result;
+    return `${filePath}(${trimmedTuple})`;
 }
 
 export function toNodesAndLinks(clones, depth) {
+    depth+=1; // depth on the UI is understood as distance from the root, here it's how many path elements we take
     var nodesMap = new Map();
     var links = new Set();
 
@@ -34,15 +31,15 @@ export function toNodesAndLinks(clones, depth) {
             }
             const parts = m.name.split('/');
             currDepth = 0;
-
-            while (currDepth < Math.min(depth, parts.length)) {
+            console.log(parts);
+            while (currDepth <= Math.min(depth, parts.length)) {
                 const path = parts.slice(0, currDepth).join('/');
 
-                // Update nodesMap with the path as the key and window as the value (clonedLines)
+                // Update nodesMap with the path as the key and size as the value (clonedLines)
                 if (nodesMap.has(path)) {
-                    nodesMap.set(path, nodesMap.get(path) + c.window); // Assuming window is the value to add
+                    nodesMap.set(path, nodesMap.get(path) + c.size);
                 } else {
-                    nodesMap.set(path, c.window); // Initialize with window value
+                    nodesMap.set(path, c.size);
                     if (currDepth !== 0) {
                         const previousPath = parts.slice(0, currDepth - 1).join('/');
                         links.add({source: previousPath, target: path});
@@ -56,8 +53,8 @@ export function toNodesAndLinks(clones, depth) {
     const nodes = Array.from(nodesMap.entries()).map(([key, value]) => ({
         id: key,
         size: value*10,
-        tooltip: `lines: ${value}\npath: ${key}`,
+        tooltip: `cloned lines: ${value}\npath: ${key}`,
     }));
 
-    return {nodes, links: Array.from(links)}; // Return both nodes and links as arrays
+    return {nodes, links: Array.from(links)};
 }

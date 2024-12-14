@@ -24,7 +24,7 @@ private tuple[list[str],list[int]] removeCommentsAndWhitespace(list[str] lines) 
             continue;
         }
 
-        line = trim(line); // this is breaking formating - maybe we save it as a field in clone model?
+        line = trim(line);
 
         if (inBlockComment) {
             if (contains(line,"*/")) {
@@ -52,47 +52,70 @@ private tuple[list[str],list[int]] removeCommentsAndWhitespace(list[str] lines) 
 
 private str fileContent(loc file) = readFile(file);
 public tuple[list[str],list[int]] normalisedFileContentLines(loc file){
-    // [lines,indexes] - to help visualize the clones despite the normalization
-    // We planned using loc.begin.line and loc.end.line, but they don't work
-    // in java+method locs - getting UnavailableInformation()
-
     list[str] lines = splitLines(fileContent(file));
     return removeCommentsAndWhitespace(lines);
 }
 
-public list[loc] getMethods(loc projectLocation) = toList(methods(getModel(projectLocation)));
-public list[loc] getClasses(loc projectLocation) = toList(classes(getModel(projectLocation)));
-public int fileLoc(loc file) = size(normalisedFileContentLines(file)[0]);
 
+public list[loc] getRelevantLocations(loc sourceLocation, list[str] excludedPaths) {
+    list[loc] files = toList(files(createM3FromDirectory(sourceLocation)));
 
-public list[Declaration] getASTs(loc projectLocation) {
-    M3 model = createM3FromMavenProject(projectLocation);
-    list[Declaration] asts = [createAstFromFile(f, true)
-    | f <- files(model.containment), isCompilationUnit(f)];
-    return asts;
+    if(size(excludedPaths) > 0){
+        list[loc] remainingFiles = [];
+        for(f <- files){
+            for(s <- excludedPaths){
+                if(!contains("<f>",s)){
+                    remainingFiles += [f];
+                }
+            }
+        }
+        files = remainingFiles;
+    }
+    
+    results = [];
+    for(loc class <- files){
+        ast = createAstFromFile(class, true);
+        
+        visit(ast) {
+            case d:\enum(_,_,_,_,_) : {
+                results += d@src;
+            }
+            case d:\interface(_,_,_,_,_,_) : {
+                results += d@src;
+            }
+            case d:\constructor(_,_,_,_,_) : {
+                results += d@src;
+            }
+            case d:\initializer(_,_) : {
+                results += d@src;
+            }
+            case d:\method(_,_,_,_,_,_,_) : {
+                results += d@src;
+            }
+            case d:\method(_,_,_,_,_,_) : {
+                results += d@src;
+            }
+        }
+    }
+    return results;
 }
 
-public M3 getModel(loc projectLocation) {
-	return createM3FromDirectory(projectLocation);
-}
 
-public M3 getModelFromFile(loc file) {
-    return createM3FromFile(file);
-}
+public int locNormalizedSize(loc location) = size(normalisedFileContentLines(location)[0]);
 
 public int stringToHash(str text) {
     return getHashCode(text);
 }
 
-public map[int,MethodData] getMethodData(list[loc] methods){
-    map[int,MethodData] md = ();
+public map[int,LocationData] getLocationData(list[loc] locations){
+    map[int,LocationData] locData = ();
 
-    for(loc m <- methods){
-        result = normalisedFileContentLines(m);
-        rawLines = fileContent(m);
-        h = stringToHash("<m>");
-        md[h] = methodData(result[0],rawLines,result[1],m);
+    for(loc l <- locations){
+        result = normalisedFileContentLines(l);
+        rawLines = fileContent(l);
+        h = stringToHash("<l>");
+        locData[h] = locationData(result[0],rawLines,result[1],l);
     }
-    return md;
+    return locData;
 }
 

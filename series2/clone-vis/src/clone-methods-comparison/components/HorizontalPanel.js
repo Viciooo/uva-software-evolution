@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useGlobalState } from '../../state'; // Import global state hook
+import { useGlobalState } from '../../state';
 import './HorizontalPanel.css';
 
 const HorizontalPanel = ({ items }) => {

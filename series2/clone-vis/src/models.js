@@ -3,20 +3,20 @@ import { extractPathFromLoc } from "./transformations";
 class CloneLocation {
   constructor(locFile, startLine, lastLine, rawLines) {
     this.name = extractPathFromLoc(locFile);
-    this.startLine = startLine + 1; // don't understand why :laughing-in-js:
-    this.lastLine = lastLine + 1; // don't understand why :laughing-in-js:
+    this.startLine = startLine + 1;
+    this.lastLine = lastLine + 1;
     this.rawLines = rawLines;
   }
 
 }
 
 export class Clone {
-  constructor(content, cloneLocs, window) {
+  constructor(content, cloneLocs, size) {
     this.content = content;
     this.methods = cloneLocs.map(
       loc => new CloneLocation(loc.locFile, loc.startLine, loc.lastLine, loc.rawLines)
     );
-    this.window = window;
+    this.size = size;
   }
 
   static createFromJSON(jsonData) {
@@ -27,7 +27,7 @@ export class Clone {
     return jsonData.map(item => new Clone(
       item.content,
       item.cloneLocs,
-      item.window
+      item.size
     ));
   }
 }

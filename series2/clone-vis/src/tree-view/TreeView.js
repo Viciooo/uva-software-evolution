@@ -9,13 +9,14 @@ const config = {
   node: {
     color: 'darkblue',
     highlightStrokeColor: 'red',
-    fontSize: 0,  // This makes the font invisible
-    labelProperty: 'id',  // Keep the ID as the label but make it invisible
+    fontSize: 0,
+    labelProperty: 'id',
   },
-    d3: {
-        gravity: -7000, // Increase repulsion (negative values repel nodes more strongly)
-        linkStrength: 0.001, // Adjust link elasticity
+  d3: {
+    gravity: -7000,
+    linkStrength: 0.001,
   },
+  link: { strokeWidth: 10 },
   directed: true,
   height: window.innerHeight,
   width: window.innerWidth,
@@ -23,22 +24,22 @@ const config = {
 
 export const TreeView = () => {
   const [tooltip, setTooltip] = useState({ visible: false, content: '', x: 0, y: 0 });
-  const [depth, setDepth] = useState(3);  // Depth state to track the current depth value
+  const [depth, setDepth] = useState(1);
+  const [selectTooltip, setSelectTooltip] = useState(false);
+  const [showHelpPopup, setShowHelpPopup] = useState(false); // State for help popup visibility
   const graphRef = useRef(null);
-  const graphInstanceRef = useRef(null); // Ref to store the graph instance
+  const graphInstanceRef = useRef(null);
 
-  const { cloneListData } = useGlobalState(); // Access global state using the custom hook
+  const { cloneListData } = useGlobalState();
+  
+  const data = toNodesAndLinks(cloneListData, depth);
 
-  const data = toNodesAndLinks(cloneListData, depth);  // Update the graph data based on the current depth
-
-  // Handle node hover for tooltip
   const handleNodeHover = (nodeId, node) => {
-    // Set the tooltip to be in the center of the screen
     setTooltip({
       visible: true,
       content: node.tooltip || nodeId,
-      x: window.innerWidth / 2,  // Position at the horizontal center of the screen
-      y: window.innerHeight / 2, // Position at the vertical center of the screen
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
     });
   };
 
@@ -46,50 +47,43 @@ export const TreeView = () => {
     setTooltip({ visible: false, content: '', x: 0, y: 0 });
   };
 
-  // Custom node configuration based on size
+  const handleDepthChange = (event) => {
+    setDepth(Number(event.target.value));
+  };
+
   const customConfig = {
     ...config,
     node: {
       ...config.node,
-      size: (node) => node.size
+      size: (node) => node.size,
     },
   };
 
-  // Function to handle depth change from the dropdown
-  const handleDepthChange = (event) => {
-    setDepth(Number(event.target.value));  // Update the depth state and refresh graph
-  };
-
   return (
-    <div
-      style={{
-        width: '90vw', // Full viewport width
-        height: '80vh', // Full viewport height
-        display: 'flex',
-        alignItems: 'center',      // Center the content vertically
-        padding: '10px',           // Padding inside the div
-        flexDirection: 'column',   // Align children (dropdown and graph) vertically
-      }}
-    >
-      {/* Depth Selection Dropdown */}
-      <div
-        style={{
-          marginBottom: '10px',
-          display: 'flex',
-          justifyContent: 'center',
-          width: '100%',
-        }}
-      >
+    <div className="container">
+      <div className="header">
+        <div className="help-icon" onClick={() => setShowHelpPopup(true)}>
+          ❓
+        </div>
+
+        {selectTooltip && (
+          <div className="select-tooltip">
+            Depth is a level of granularity you choose for analysing.
+            <br></br>
+            It literally means - how many packages down from the root of the project do you want to see.
+            <br></br>
+            Ex: depth=0 shows only root, depth=1 shows root and files/folders in its directory, and so on...
+          </div>
+        )}
+
         <select
           value={depth}
           onChange={handleDepthChange}
-          style={{
-            padding: '5px 10px',
-            fontSize: '14px',
-            cursor: 'pointer',
-          }}
+          className="select-dropdown"
+          onMouseEnter={() => setSelectTooltip(true)}
+          onMouseLeave={() => setSelectTooltip(false)}
         >
-          {Array.from({ length: 10 }, (_, i) => i + 1).map((d) => (
+          {Array.from({ length: 10 }, (_, i) => i).map((d) => (
             <option key={d} value={d}>
               Depth {d}
             </option>
@@ -97,46 +91,46 @@ export const TreeView = () => {
         </select>
       </div>
 
-      {/* Graph Container */}
-      <div
-        ref={graphRef}
-        style={{
-          position: 'relative',
-          width: '100%',
-          height: '100%',
-        }}
-      >
-        {/* Tooltip */}
+      <div ref={graphRef} className="graph-container">
         <div
-          className="tooltip"
+          className={`tooltip ${tooltip.visible ? 'visible' : ''}`}
           style={{
-            position: 'absolute',
-            visibility: tooltip.visible ? 'visible' : 'hidden',
             left: `${tooltip.x}px`,
             top: `${tooltip.y}px`,
-            background: 'rgba(0, 0, 0, 0.75)',
-            color: '#fff',
-            padding: '8px',
-            borderRadius: '4px',
-            fontSize: '12px',
-            pointerEvents: 'none',
-            transform: 'translate(-50%, -100%)', // Center the tooltip based on the x and y positions
-            whiteSpace: 'pre-line', // Important to handle \n as line breaks
           }}
         >
           {tooltip.content}
         </div>
 
-        {/* Graph */}
         <Graph
           id="graph"
           data={data}
-          config={customConfig} // Use custom config with dynamic node sizes
+          config={customConfig}
           onMouseOverNode={(nodeId, node) => handleNodeHover(nodeId, node)}
           onMouseOutNode={handleNodeOut}
-          ref={graphInstanceRef} // Store the graph instance to trigger onClickNode
+          ref={graphInstanceRef}
         />
       </div>
+
+      {showHelpPopup && (
+        <div className="help-popup">
+          <div className="popup-content">
+            <h3>About this tool</h3>
+            <p>
+              This is the tool that shows the distribution of cloned lines across the files and packages.
+              The sizes of nodes correspond to the amount of cloned lines they have.
+            </p>
+            <p>
+              Place your mouse over a node to see the path in the analyzed project and the number of cloned lines.
+            </p>
+            <p>You can zoom in/out(using scroll) and drag the nodes.</p>
+            <p>
+              Arrow going from one node to the other signals that it is a parent package.
+            </p>
+            <button onClick={() => setShowHelpPopup(false)}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

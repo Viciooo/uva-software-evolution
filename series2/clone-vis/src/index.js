@@ -8,7 +8,6 @@ import { TreeView } from './tree-view/TreeView';
 import { GlobalStateProvider } from './state';
 import Home from "./home/Home";
 
-// React 16: Use ReactDOM.render instead of createRoot
 function App() {
   const [selectedTab, setSelectedTab] = useState(0); // Manage which tab is selected
 
@@ -30,9 +29,9 @@ function App() {
             scrollButtons="auto"
             aria-label="scrollable tabs example"
           >
-            <Tab label="Home" />
+            <Tab label="Load clones from JSON" />
             <Tab label="Clone class investigator" />
-            <Tab label="Tree View" />
+            <Tab label="Duplicates distribution" />
           </Tabs>
 
           {selectedTab === 0 && (

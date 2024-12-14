@@ -26,8 +26,7 @@ export const CloneMethodComparison = () => {
       const methods = clone.methods;
       const m = methods[leftWindowLocIdx];
 
-      // Use rawLines directly from the method object
-      setIsLoadingLeftCode(false); // Set loading to false immediately
+      setIsLoadingLeftCode(false);
       setLeftWindowJavaCode(m.rawLines || ''); // Set Java code from rawLines
 
       setLeftWindowHighlightedLines(
@@ -37,7 +36,7 @@ export const CloneMethodComparison = () => {
     } else {
       setLeftWindowJavaCode('');
       setLeftWindowHighlightedLines([]);
-      setIsLoadingLeftCode(false); // Reset loading state
+      setIsLoadingLeftCode(false);
     }
   }, [selectedRowIndex, cloneListData, leftWindowLocIdx]);
 
@@ -49,7 +48,7 @@ export const CloneMethodComparison = () => {
       const m = methods[rightWindowLocIdx];
 
       // Use rawLines directly from the method object
-      setIsLoadingRightCode(false); // Set loading to false immediately
+      setIsLoadingRightCode(false);
       setRightWindowJavaCode(m.rawLines || ''); // Set Java code from rawLines
 
       setRightWindowHighlightedLines(

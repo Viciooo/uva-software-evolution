@@ -3,7 +3,6 @@ import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { java } from 'react-syntax-highlighter/dist/esm/languages/hljs';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-// Register Java syntax
 SyntaxHighlighter.registerLanguage('java', java);
 
 const CodeVisualizer = ({ code, highlightedLines }) => {

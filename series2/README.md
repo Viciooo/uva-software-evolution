@@ -15,4 +15,4 @@ Check out logs and *result.txt* file to see run details.
 
 You will need node v16 to run the react project:
 
-`nvm install 16 && nvm use 16 && npm install -g npm@latest && npm install && npm start`
+``nvm install 16 && nvm use 16 && npm install -g npm@latest && npm install && npm start``
