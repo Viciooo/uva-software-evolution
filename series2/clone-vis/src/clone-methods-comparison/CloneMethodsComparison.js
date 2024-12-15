@@ -32,7 +32,6 @@ export const CloneMethodComparison = () => {
       setLeftWindowHighlightedLines(
         Array.from({ length: m.lastLine - m.startLine + 1 }, (_, i) => m.startLine + i)
       );
-      console.log('Left window Java code:', m.rawLines);
     } else {
       setLeftWindowJavaCode('');
       setLeftWindowHighlightedLines([]);
@@ -54,7 +53,6 @@ export const CloneMethodComparison = () => {
       setRightWindowHighlightedLines(
         Array.from({ length: m.lastLine - m.startLine + 1 }, (_, i) => m.startLine + i)
       );
-      console.log('Right window Java code:', m.rawLines);
     } else {
       setRightWindowJavaCode('');
       setRightWindowHighlightedLines([]);

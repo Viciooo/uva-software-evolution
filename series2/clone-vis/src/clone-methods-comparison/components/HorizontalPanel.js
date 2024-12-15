@@ -9,21 +9,16 @@ const HorizontalPanel = ({ items }) => {
   const toggleSelect = (index) => {
     if (leftWindowLocIdx === null) {
       setLeftWindowLocIdx(index); // Set left index if not already selected
-      console.log('leftWindowLocIdx:', index);
     } else if (rightWindowLocIdx === null && index !== leftWindowLocIdx) {
       setRightWindowLocIdx(index); // Set right index if not already selected
-      console.log('rightWindowLocIdx:', index);
     } else if (leftWindowLocIdx === index) {
       setLeftWindowLocIdx(null); // Deselect left index
-      console.log('leftWindowLocIdx:', null);
     } else if (rightWindowLocIdx === index) {
       setRightWindowLocIdx(null); // Deselect right index
-      console.log('leftWindowLocIdx:', null);
     }
   };
 
   const truncateName = (name) => {
-    console.log('name',name);
     const visibleLength = 20;
     if (name && name.length > visibleLength) {
       return `...${name.slice(-visibleLength)}`;

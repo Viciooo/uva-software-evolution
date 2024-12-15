@@ -100,7 +100,6 @@ public list[loc] getRelevantLocations(loc sourceLocation, list[str] excludedPath
     return results;
 }
 
-
 public int locNormalizedSize(loc location) = size(normalisedFileContentLines(location)[0]);
 
 public int stringToHash(str text) {

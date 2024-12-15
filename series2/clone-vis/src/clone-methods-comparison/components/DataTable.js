@@ -51,7 +51,6 @@ export default function DataTable() {
   const handleRowClick = useCallback((event) => {
     cleanSelection();
     setSelectedRowIndex(event.data.id); // Record the clicked row index
-    console.log(`Row clicked: ${event.data.id}`);
   }, [setSelectedRowIndex, cleanSelection]);
 
   return (

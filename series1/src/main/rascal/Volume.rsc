@@ -11,7 +11,7 @@ public int volumeLevel(project){
     for (class <- getClasses(project)) {
         locNum += fileLoc(class);
     }
-    println("Total lines of code: <locNum> KLOC");
+    println("Total lines of code: <locNum/1000> KLOC");
     
     if(locNum <= 66000){
         return 5;

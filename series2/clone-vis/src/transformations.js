@@ -17,21 +17,30 @@ export function extractPathFromLoc(loc) {
     return `${filePath}(${trimmedTuple})`;
 }
 
-export function toNodesAndLinks(clones, depth) {
-    depth+=1; // depth on the UI is understood as distance from the root, here it's how many path elements we take
-    var nodesMap = new Map();
-    var links = new Set();
+export function toNodesAndLinks(clones, depth, filterOutSmall = true) {
+    depth += 1; // depth on the UI is understood as distance from the root, here it's how many path elements we take
+    const nodesMap = new Map();
+    const links = new Set();
 
-    var currDepth = 0;
+    let currDepth = 0;
+    let totalClonedLines = 0;
+
+    // Calculate the total cloned lines
+    totalClonedLines = clones.reduce((sum, c) => sum + c.size, 0);
 
     clones.forEach(c => {
+        // Skip nodes if filterOutSmall is true and size is smaller than 0.1% of total cloned lines
+        if (filterOutSmall && c.size < totalClonedLines * 0.001) {
+            return;
+        }
+
         c.methods.forEach(m => {
             if (!m.name) {
-                return
+                return;
             }
             const parts = m.name.split('/');
             currDepth = 0;
-            console.log(parts);
+
             while (currDepth <= Math.min(depth, parts.length)) {
                 const path = parts.slice(0, currDepth).join('/');
 
@@ -42,7 +51,7 @@ export function toNodesAndLinks(clones, depth) {
                     nodesMap.set(path, c.size);
                     if (currDepth !== 0) {
                         const previousPath = parts.slice(0, currDepth - 1).join('/');
-                        links.add({source: previousPath, target: path});
+                        links.add({ source: previousPath, target: path });
                     }
                 }
                 currDepth += 1;
@@ -50,11 +59,12 @@ export function toNodesAndLinks(clones, depth) {
         });
     });
 
-    const nodes = Array.from(nodesMap.entries()).map(([key, value]) => ({
-        id: key,
-        size: value*10,
-        tooltip: `cloned lines: ${value}\npath: ${key}`,
-    }));
+    const nodes = Array.from(nodesMap.entries())
+        .map(([key, value]) => ({
+            id: key,
+            size: value * 100,
+            tooltip: `cloned lines: ${value}\npath: ${key}`,
+        }));
 
-    return {nodes, links: Array.from(links)};
+    return { nodes, links: Array.from(links) };
 }
